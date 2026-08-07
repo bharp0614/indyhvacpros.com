@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+
+<html lang="en" data-skin="con">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HVAC & Home Comfort Systems | Indy Climate Control LLC | Indianapolis, IN</title>
+  <meta name="description" content="Indianapolis's trusted HVAC & Home Comfort Systems specialists. Indianapolis's trusted HVAC specialists for homes and businesses.">
+  <link rel="canonical" href="https://www.indyclimatecontrol.test">
+  <link rel="stylesheet" href="../../02_TEMPLATES/global-css-tokens.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Indy Climate Control LLC",
+    "telephone": "(317) 555-0144",
+    "email": "service@indyclimatecontrol.test",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7822 W 86th St, Indianapolis, IN 46278",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46278"
+    },
+    "url": "https://www.indyclimatecontrol.test"
+  }
+  </script>
+<style>
+
+  /* --- Consolidated Component Styles --- */
+  .site-footer {
+  background-color: var(--surface-inverse);
+  padding: var(--section-padding-y) var(--space-6) var(--space-8);
+}
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Full variant grid ───────────────────────────────────────── */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border-default);
+  opacity: 0.85;
+}
+.site-footer__col-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-4);
+}
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  margin: 0 0 var(--space-3);
+}
+.site-footer__tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.65;
+  margin: 0 0 var(--space-6);
+  line-height: 1.5;
+}
+
+/* ── NAP ────────────────────────────────────────────────────── */
+.site-footer__nap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nap li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.75;
+}
+.site-footer__nap a {
+  color: var(--text-inverse);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.site-footer__nap a:hover { opacity: 1; }
+
+/* Phone in footer */
+.site-footer__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+/* ── Nav links ───────────────────────────────────────────────── */
+.site-footer__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nav a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.site-footer__nav a:hover { opacity: 1; }
+
+/* ── Footer CTA ──────────────────────────────────────────────── */
+.site-footer__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-footer__cta-btn:hover { background-color: var(--btn-primary-bg-hover); }
+
+/* ── Bottom bar ──────────────────────────────────────────────── */
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.site-footer__copyright {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  margin: 0;
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+.site-footer__legal a {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  text-decoration: none;
+}
+.site-footer__legal a:hover { opacity: 0.8; }
+
+/* ── Minimal variant ─────────────────────────────────────────── */
+.site-footer--minimal .site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+  .service-area-tags {
+  font-family: var(--font-body);
+}
+.service-area-tags__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--space-3);
+}
+.service-area-tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.service-area-tags__item a,
+.service-area-tags__item span {
+  display: inline-block;
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+.service-area-tags__item a:hover {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  border-color: var(--action-primary);
+}
+
+  .pricing-table {
+  background-color: var(--surface-primary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.pricing-table__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pricing-table__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-12);
+}
+.pricing-table__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+.pricing-table__card {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-border-radius);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.pricing-table__card--featured {
+  background-color: var(--surface-inverse);
+  border-color: var(--action-primary);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.pricing-table__badge {
+  display: inline-block;
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+.pricing-table__tier-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+.pricing-table__card--featured .pricing-table__tier-name {
+  color: var(--text-inverse);
+}
+.pricing-table__price {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-black);
+  color: var(--action-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+.pricing-table__card--featured .pricing-table__price {
+  color: var(--action-primary-text);
+}
+.pricing-table__description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+.pricing-table__card--featured .pricing-table__description {
+  color: var(--text-inverse);
+  opacity: 0.8;
+}
+.pricing-table__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-grow: 1;
+}
+.pricing-table__features li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding-left: var(--space-5);
+  position: relative;
+}
+.pricing-table__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: var(--font-bold);
+}
+.pricing-table__card--featured .pricing-table__features li {
+  color: var(--text-inverse);
+  opacity: 0.9;
+}
+.pricing-table__card--featured .pricing-table__features li::before {
+  color: var(--action-primary-text);
+}
+.pricing-table__btn {
+  display: block;
+  text-align: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: var(--btn-transition);
+  margin-top: auto;
+}
+.pricing-table__btn:hover { background-color: var(--btn-primary-bg-hover); }
+.pricing-table__card--featured .pricing-table__btn {
+  background-color: var(--action-primary-text);
+  color: var(--action-primary);
+}
+.pricing-table__card--featured .pricing-table__btn:hover {
+  opacity: 0.9;
+}
+
+  .guarantee {
+  background-color: var(--surface-inverse);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.guarantee__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.guarantee__icon {
+  font-size: var(--text-5xl);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+.guarantee__headline {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-black);
+  color: var(--text-inverse);
+  margin: 0 0 var(--space-4);
+  line-height: 1.15;
+}
+.guarantee__description {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--text-inverse);
+  opacity: 0.85;
+  line-height: 1.7;
+  margin: 0 0 var(--space-4);
+}
+.guarantee__terms {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.6;
+  margin: 0 0 var(--space-8);
+}
+.guarantee__cta {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--action-primary-text);
+  color: var(--action-primary);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-cta-font-size);
+  font-weight: var(--btn-cta-font-weight);
+  padding: var(--btn-cta-padding-y) var(--btn-cta-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.guarantee__cta:hover { opacity: 0.9; }
+.guarantee__attribution {
+  margin-top: var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.5;
+}
+
+  .faq {
+  background-color: var(--surface-primary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.faq__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-10);
+}
+.faq__item {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+.faq__item[open] { box-shadow: var(--shadow-card); }
+.faq__question {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--surface-secondary);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+.faq__question:hover { background-color: var(--surface-tertiary); }
+.faq__question::after {
+  content: "+";
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--action-primary);
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.faq__item[open] .faq__question::after {
+  content: "−";
+}
+.faq__answer {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: var(--space-5) var(--space-6);
+  background-color: var(--surface-primary);
+  border-top: 1px solid var(--border-default);
+  margin: 0;
+}
+/* Remove default marker in Firefox */
+.faq__question::-webkit-details-marker { display: none; }
+
+  /* ── Full section wrapper ─────────────────────────────────────── */
+.reviews {
+  background-color: var(--surface-secondary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.reviews__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Aggregate score row ──────────────────────────────────────── */
+.reviews__aggregate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  flex-wrap: wrap;
+}
+.reviews__score-number {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-black);
+  color: var(--text-primary);
+  line-height: 1;
+}
+.reviews__score-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.reviews__stars {
+  color: var(--accent-secondary);
+  font-size: var(--text-xl);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.reviews__count {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+.reviews__source-link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-action);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+}
+.reviews__source-link:hover { text-decoration: underline; }
+
+/* ── Cards grid ───────────────────────────────────────────────── */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+.reviews__card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-border-radius);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.reviews__card-stars {
+  color: var(--accent-secondary);
+  font-size: var(--text-base);
+  letter-spacing: 0.05em;
+}
+.reviews__card-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  flex-grow: 1;
+  font-style: italic;
+}
+.reviews__card-text::before { content: "\201C"; }
+.reviews__card-text::after  { content: "\201D"; }
+.reviews__card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--space-3);
+}
+.reviews__card-author {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+.reviews__card-date {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+  .before-after {
+  background-color: var(--surface-secondary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.before-after__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.before-after__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-10);
+}
+.before-after__comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 639px) {
+  .before-after__comparison { grid-template-columns: 1fr; }
+}
+.before-after__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-card);
+}
+.before-after__panel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+.before-after__label {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.before-after__label--before {
+  background-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+.before-after__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.before-after__caption {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.before-after__tag {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+  .process-steps {
+  background-color: var(--surface-secondary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.process-steps__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.process-steps__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-12);
+}
+.process-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+.process-steps__card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-border-radius);
+  padding: var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+.process-steps__card:hover { box-shadow: var(--shadow-card-hover); }
+.process-steps__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
+}
+.process-steps__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+}
+.process-steps__description {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+.process-steps__cta {
+  text-align: center;
+}
+.process-steps__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-cta-font-size);
+  font-weight: var(--btn-cta-font-weight);
+  padding: var(--btn-cta-padding-y) var(--btn-cta-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  box-shadow: var(--btn-primary-shadow);
+  transition: var(--btn-transition);
+}
+.process-steps__cta-btn:hover { background-color: var(--btn-primary-bg-hover); }
+
+  .trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+.trust-badges__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.trust-badges__icon {
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+  .site-header {
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-nav);
+  width: 100%;
+  z-index: 100;
+}
+.site-header[data-header="sticky"] { position: sticky; top: 0; }
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.site-header__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.site-header__logo:hover { color: var(--action-primary); }
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header__nav a {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.site-header__nav a:hover { color: var(--action-primary); }
+.site-header__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-header__phone:hover { opacity: 0.85; }
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-header__cta:hover { background-color: var(--btn-primary-bg-hover); }
+@media (max-width: 767px) { .site-header__nav { display: none; } }
+
+  .social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-links__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.social-links__link:hover {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  border-color: var(--action-primary);
+}
+/* In footer (dark surface): override base colors for visibility */
+.site-footer .social-links__link {
+  background-color: transparent;
+  border-color: var(--border-default);
+  color: var(--text-inverse);
+  opacity: 0.65;
+}
+.site-footer .social-links__link:hover {
+  background-color: var(--action-primary);
+  border-color: var(--action-primary);
+  color: var(--action-primary-text);
+  opacity: 1;
+}
+  </style>
+</head>
+<body>
+
+  <!-- 1. HEADER — nav variant with sticky option (logo + nav + CTA button) -->
+  <header class="site-header" data-header="sticky">
+  <div class="site-header__inner">
+    <a href="https://www.indyclimatecontrol.test" class="site-header__logo">Indy Climate Control LLC</a>
+    <nav aria-label="Primary navigation">
+      <ul class="site-header__nav">
+        <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="site-header__cta">Request a Free Quote</a>
+  </div>
+</header>
+
+  <main id="main-content">
+
+    <!-- 2. HERO — authority-forward, headline + subheadline + trust badges + CTA button -->
+    <section style="
+      background-color: var(--surface-inverse);
+      padding: var(--space-20) var(--space-6);
+    ">
+      <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center;">
+        <div>
+          <h1 style="
+            font-family: var(--hero-font);
+            font-size: var(--text-5xl);
+            font-weight: var(--font-bold);
+            color: var(--text-inverse);
+            margin: 0 0 var(--space-4);
+            line-height: 1.15;
+          ">HVAC & Home Comfort Systems</h1>
+          <p style="
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            color: var(--text-inverse);
+            opacity: 0.8;
+            margin: 0 0 var(--space-6);
+            line-height: 1.7;
+          ">Indianapolis's trusted HVAC specialists for homes and businesses.</p>
+          <div class="trust-badges" aria-label="Trust signals for Indy Climate Control LLC">
+  <span class="trust-badges__item">
+    <span class="trust-badges__icon" aria-hidden="true">✅</span>
+    Licensed, Bonded & Insured — NATE Certified
+  </span>
+  <span class="trust-badges__item">
+    <span class="trust-badges__icon" aria-hidden="true">⭐</span>
+    4.9 Stars — 180+ Google Reviews
+  </span>
+  <span class="trust-badges__item">
+    <span class="trust-badges__icon" aria-hidden="true">🏆</span>
+    2018+ Years Experience
+  </span>
+  <span class="trust-badges__item">
+    <span class="trust-badges__icon" aria-hidden="true">🛡️</span>
+    Same-Day Service Guarantee
+  </span>
+</div>
+          <div style="margin-top:var(--space-8);display:flex;gap:var(--space-4);flex-wrap:wrap;">
+            <!-- Primary CTA button -->
+            <a href="contact.html" style="
+              display:inline-flex;align-items:center;
+              background-color:var(--btn-primary-bg);
+              color:var(--btn-primary-text);
+              font-family:var(--btn-font-family);
+              font-size:var(--btn-cta-font-size);
+              font-weight:var(--btn-cta-font-weight);
+              padding:var(--btn-cta-padding-y) var(--btn-cta-padding-x);
+              border-radius:var(--btn-radius);
+              text-decoration:none;
+              box-shadow:var(--btn-primary-shadow);
+            ">Request a Free Quote</a>
+            <!-- Secondary: phone -->
+            <a href="tel:(317) 555-0144" style="
+              display:inline-flex;align-items:center;
+              font-family:var(--font-display);
+              font-size:var(--phone-size);
+              font-weight:var(--phone-weight);
+              color:var(--phone-color);
+              text-decoration:none;
+            ">(317) 555-0144</a>
+          </div>
+        </div>
+        <!-- Right column: hero image slot -->
+        <div style="
+          background-color:var(--surface-tertiary);
+          border-radius:var(--card-border-radius);
+          min-height:400px;
+          display:flex;align-items:center;justify-content:center;
+          color:var(--text-tertiary);
+          font-family:var(--font-body);
+          font-size:var(--text-sm);
+        ">
+          <!-- REPLACE: with <img src="images/indy_climate_control_hero.jpg" alt="Indy Climate Control hero image" style="width:100%;height:400px;object-fit:cover;border-radius:var(--card-border-radius);"> -->
+          Hero Image Slot — replace with client photo
+        </div>
+      </div>
+    </section>
+
+    <section class="process-steps" aria-labelledby="process-heading">
+  <div class="process-steps__inner">
+    <h2 id="process-heading" class="process-steps__heading">HVAC & Home Comfort Systems</h2>
+    <div class="process-steps__grid">
+      <div class="process-steps__card">
+        <div class="process-steps__number" aria-hidden="true">1</div>
+        <h3 class="process-steps__title">1. Free Diagnostic</h3>
+        <p class="process-steps__description">We inspect your system, identify the issue, and give you a clear, flat-rate quote — no surprises.</p>
+      </div>
+      <div class="process-steps__card">
+        <div class="process-steps__number" aria-hidden="true">2</div>
+        <h3 class="process-steps__title">2. Expert Repair or Install</h3>
+        <p class="process-steps__description">Our NATE-certified technicians fix or replace your equipment using OEM parts and proven procedures.</p>
+      </div>
+      <div class="process-steps__card">
+        <div class="process-steps__number" aria-hidden="true">3</div>
+        <h3 class="process-steps__title">3. Comfort Guaranteed</h3>
+        <p class="process-steps__description">We test the full system before we leave and back every job with our same-day satisfaction guarantee.</p>
+      </div>
+    </div>
+    <div class="process-steps__cta">
+      <a href="contact.html" class="process-steps__cta-btn">Request a Free Quote</a>
+    </div>
+  </div>
+</section>
+<section class="before-after" aria-labelledby="before-after-heading">
+  <div class="before-after__inner">
+    <h2 id="before-after-heading" class="before-after__heading">HVAC & Home Comfort Systems</h2>
+
+    <div class="before-after__comparison">
+      <div class="before-after__panel">
+        <img src="images/before.jpg" alt="Before service photo" loading="lazy">
+        <span class="before-after__label before-after__label--before">Before</span>
+      </div>
+      <div class="before-after__panel">
+        <img src="images/after.jpg" alt="After service photo" loading="lazy">
+        <span class="before-after__label">After</span>
+      </div>
+    </div>
+
+    <div class="before-after__meta">
+      <p class="before-after__caption">Recent HVAC & Home Comfort Systems project in Indianapolis, Indiana.</p>
+      <span class="before-after__tag">HVAC & Home Comfort Systems · Indianapolis</span>
+    </div>
+
+  </div>
+</section>
+<section class="reviews" aria-labelledby="reviews-heading">
+  <div class="reviews__inner">
+
+    <!-- Aggregate Score -->
+    <div class="reviews__aggregate">
+      <span class="reviews__score-number">5.0</span>
+      <div class="reviews__score-meta">
+        <span class="reviews__stars" aria-label="5.0 out of 5 stars">★★★★★</span>
+        <span class="reviews__count">Based on 50 reviews</span>
+        <a href="https://maps.google.com/?q=indy+climate+control" class="reviews__source-link" target="_blank" rel="noopener">
+          Read on Google
+        </a>
+      </div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="reviews__grid">
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Mike and his crew replaced our entire HVAC system in one day. Price was fair and the install was spotless.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">Sandra K., Speedway Homeowner</p>
+          <span class="reviews__card-date">2026-04-10</span>
+        </footer>
+      </article>
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Called at 7pm on a Friday with a dead furnace. They were at my door by 9pm. Incredible service.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">James P., Avon Resident</p>
+          <span class="reviews__card-date">2026-03-22</span>
+        </footer>
+      </article>
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Best AC tune-up I've had. They found a refrigerant leak the last company missed and fixed it same day.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">Tina R., Indianapolis Homeowner</p>
+          <span class="reviews__card-date">2026-05-05</span>
+        </footer>
+      </article>
+
+    </div>
+  </div>
+</section>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="faq__inner">
+    <h2 id="faq-heading" class="faq__heading">HVAC & Home Comfort Systems</h2>
+
+    <details class="faq__item" open>
+      <summary class="faq__question">How quickly can you respond to an emergency?</summary>
+      <p class="faq__answer">We offer 24/7 emergency service with typical response times under 2 hours for the greater Indianapolis area.</p>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">Do you work on all HVAC brands?</summary>
+      <p class="faq__answer">Yes, our NATE-certified technicians are trained on all major brands including Carrier, Trane, Lennox, Rheem, and Goodman.</p>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">What is included in the $89 AC tune-up?</summary>
+      <p class="faq__answer">Our 16-point inspection includes coil cleaning, refrigerant pressure check, capacitor test, filter replacement, and a full performance report.</p>
+    </details>
+
+    <!-- Optional: add/remove additional items as needed -->
+    <details class="faq__item">
+      <summary class="faq__question">Do you offer financing for new systems?</summary>
+      <p class="faq__answer">Yes, we partner with GreenSky to offer 12-month same-as-cash and low monthly payment options for qualifying customers.</p>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">Are your technicians certified?</summary>
+      <p class="faq__answer">All of our field technicians hold active NATE certifications — the industry's highest standard for HVAC competency.</p>
+    </details>
+
+  </div>
+</section>
+<section class="guarantee" aria-labelledby="guarantee-heading">
+  <div class="guarantee__inner">
+    <span class="guarantee__icon" aria-hidden="true">🛡️</span>
+    <h2 id="guarantee-heading" class="guarantee__headline">The Indy Climate Control Comfort Guarantee</h2>
+    <p class="guarantee__description">We back every repair and installation with our same-day satisfaction promise. If it's not right, we come back — no charge.</p>
+    <p class="guarantee__terms">Applies to all diagnostic repairs and new system installations performed by our certified technicians.</p>
+    <a href="contact.html" class="guarantee__cta">Request a Free Quote</a>
+    <p class="guarantee__attribution">— Indy Climate Control LLC</p>
+  </div>
+</section>
+<section class="pricing-table" aria-labelledby="pricing-heading">
+  <div class="pricing-table__inner">
+    <h2 id="pricing-heading" class="pricing-table__heading">HVAC & Home Comfort Systems</h2>
+    <div class="pricing-table__grid">
+
+      <!-- Tier 1 -->
+      <div class="pricing-table__card">
+        <h3 class="pricing-table__tier-name">AC Tune-Up & Diagnostic</h3>
+        <p class="pricing-table__price">$89 Flat Rate</p>
+        <p class="pricing-table__description">Full system inspection, coil cleaning, refrigerant check, and performance report.</p>
+        <ul class="pricing-table__features">
+          <!-- Agent: replace with individual <li> items from 16-point inspection checklist, filter replacement, thermostat calibration -->
+          <li>16-point inspection checklist, filter replacement, thermostat calibration</li>
+        </ul>
+        <a href="contact.html" class="pricing-table__btn">Request a Free Quote</a>
+      </div>
+
+      <!-- Tier 2 (FEATURED — most popular) -->
+      <div class="pricing-table__card pricing-table__card--featured">
+        <span class="pricing-table__badge">Most Popular</span>
+        <h3 class="pricing-table__tier-name">Full HVAC Replacement</h3>
+        <p class="pricing-table__price">Custom Quote</p>
+        <p class="pricing-table__description">Complete system removal and installation of new matched heating and cooling equipment.</p>
+        <ul class="pricing-table__features">
+          <li>Load calculation sizing, full permit pull, warranty registration, 1-year labor guarantee</li>
+        </ul>
+        <a href="contact.html" class="pricing-table__btn">Request a Free Quote</a>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="pricing-table__card">
+        <h3 class="pricing-table__tier-name">Comfort Club Membership</h3>
+        <p class="pricing-table__price">$19/month</p>
+        <p class="pricing-table__description">Priority scheduling, annual tune-ups, and 15% off all parts and service calls.</p>
+        <ul class="pricing-table__features">
+          <li>Bi-annual maintenance visits, front-of-line emergency response, parts discount</li>
+        </ul>
+        <a href="contact.html" class="pricing-table__btn">Request a Free Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="service-area-tags" aria-label="Cities and areas we serve">
+  <p class="service-area-tags__label">Serving Indianapolis, Speedway, Brownsburg, Avon, Plainfield</p>
+  <ul class="service-area-tags__list">
+    <!--
+      Agent: Replace the items below with individual cities from Indianapolis, Speedway, Brownsburg, Avon, Plainfield.
+      Use <a href="/service-area/[city-slug]"> if location pages exist, else use <span>.
+    -->
+    <li class="service-area-tags__item"><a href="/service-area/indianapolis-hvac">Indianapolis, Speedway, Brownsburg, Avon, Plainfield</a></li>
+    <!-- Additional city tags go here -->
+  </ul>
+</div>
+
+
+  </main>
+
+  <!-- 11. FOOTER — full variant -->
+  <footer class="site-footer" data-footer="full">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+
+      <!-- Column 1: Brand + Phone -->
+      <div>
+        <p class="site-footer__brand">Indy Climate Control LLC</p>
+        <p class="site-footer__tagline">Serving Indianapolis and surrounding areas since 2018.</p>
+        <a href="tel:(317) 555-0144" class="site-footer__phone">(317) 555-0144</a>
+        <a href="contact.html" class="site-footer__cta-btn">Request a Free Quote</a>
+      </div>
+
+      <!-- Column 2: Contact / NAP -->
+      <div>
+        <h3 class="site-footer__col-heading">Contact</h3>
+        <ul class="site-footer__nap" itemscope itemtype="https://schema.org/LocalBusiness">
+          <li itemprop="name" style="display:none">Indy Climate Control LLC</li>
+          <li><a href="tel:(317) 555-0144" itemprop="telephone">(317) 555-0144</a></li>
+          <li><a href="mailto:service@indyclimatecontrol.test">service@indyclimatecontrol.test</a></li>
+          <li itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">7822 W 86th St, Indianapolis, IN 46278</span>,
+            <span itemprop="addressLocality">Indianapolis</span>,
+            <span itemprop="addressRegion">IN</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Navigation -->
+      <div>
+        <h3 class="site-footer__col-heading">Quick Links</h3>
+        <ul class="site-footer__nav">
+          <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Service Area + Social slot -->
+      <div>
+        <h3 class="site-footer__col-heading">Service Area</h3>
+        <p style="font-family:var(--font-body);font-size:var(--text-sm);color:var(--text-inverse);opacity:0.7;margin:0 0 var(--space-4);">Indianapolis, Speedway, Brownsburg, Avon, Plainfield</p>
+        <ul class="social-links" aria-label="Social media links for Indy Climate Control LLC">
+
+  <li>
+    <a href="https://facebook.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Facebook"
+       target="_blank"
+       rel="noopener noreferrer">f</a>
+  </li>
+
+  <li>
+    <a href="https://instagram.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Instagram"
+       target="_blank"
+       rel="noopener noreferrer">&#9426;</a>
+  </li>
+
+  <li>
+    <a href="https://maps.google.com/?q=indy+climate+control"
+       class="social-links__link"
+       aria-label="Google Reviews"
+       target="_blank"
+       rel="noopener noreferrer">G</a>
+  </li>
+
+  <!-- Optional: remove if client not on Nextdoor -->
+  <li>
+    <a href="https://nextdoor.com/pages/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Nextdoor"
+       target="_blank"
+       rel="noopener noreferrer">N</a>
+  </li>
+
+  <!-- Optional: remove if client not on Yelp -->
+  <li>
+    <a href="https://yelp.com/biz/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Yelp"
+       target="_blank"
+       rel="noopener noreferrer">Y</a>
+  </li>
+
+</ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        &copy; 2026 Indy Climate Control LLC. All rights reserved.
+      </p>
+      <div class="site-footer__legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

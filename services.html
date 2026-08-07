@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+` repeat block to compile services.
+  3. Apply the correct skin by adding data-skin="<skin-id>" to <html> at deploy time.
+  4. Verify canonical URL matches the live domain before publishing.
+
+  NEW TOKENS REGISTERED BY THIS TEMPLATE (add to token registry):
+    service_name        — Display name of service
+    service_slug        — URL slug for service
+    service_description — Short description for service card
+    service_icon_url    — Icon/illustration URL for service card
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HVAC & Home Comfort Systems | Indy Climate Control LLC</title>
+  <meta name="description" content="Explore all HVAC & Home Comfort Systems offered by Indy Climate Control LLC serving Indianapolis, IN.">
+  <link rel="canonical" href="https://www.indyclimatecontrol.test/services.html">
+  <link rel="stylesheet" href="../global-css-tokens.css">
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "HVAC & Home Comfort Systems",
+    "description": "Indianapolis's trusted HVAC specialists for homes and businesses.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Indianapolis, Speedway, Brownsburg, Avon, Plainfield"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Indy Climate Control LLC",
+      "telephone": "(317) 555-0144",
+      "email": "service@indyclimatecontrol.test",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7822 W 86th St, Indianapolis, IN 46278",
+        "addressLocality": "Indianapolis",
+        "addressRegion": "IN",
+        "postalCode": "46278"
+      },
+      "url": "https://www.indyclimatecontrol.test"
+    },
+    "url": "https://www.indyclimatecontrol.test/services.html"
+  }
+  </script>
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Indy Climate Control LLC",
+    "telephone": "(317) 555-0144",
+    "email": "service@indyclimatecontrol.test",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7822 W 86th St, Indianapolis, IN 46278",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46278"
+    },
+    "url": "https://www.indyclimatecontrol.test",
+    "sameAs": "https://maps.google.com/?q=indy+climate+control"
+  }
+  </script>
+<style>
+
+  /* --- Consolidated Component Styles --- */
+  .site-footer {
+  background-color: var(--surface-inverse);
+  padding: var(--section-padding-y) var(--space-6) var(--space-8);
+}
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Full variant grid ───────────────────────────────────────── */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border-default);
+  opacity: 0.85;
+}
+.site-footer__col-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-4);
+}
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  margin: 0 0 var(--space-3);
+}
+.site-footer__tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.65;
+  margin: 0 0 var(--space-6);
+  line-height: 1.5;
+}
+
+/* ── NAP ────────────────────────────────────────────────────── */
+.site-footer__nap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nap li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.75;
+}
+.site-footer__nap a {
+  color: var(--text-inverse);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.site-footer__nap a:hover { opacity: 1; }
+
+/* Phone in footer */
+.site-footer__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+/* ── Nav links ───────────────────────────────────────────────── */
+.site-footer__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nav a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.site-footer__nav a:hover { opacity: 1; }
+
+/* ── Footer CTA ──────────────────────────────────────────────── */
+.site-footer__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-footer__cta-btn:hover { background-color: var(--btn-primary-bg-hover); }
+
+/* ── Bottom bar ──────────────────────────────────────────────── */
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.site-footer__copyright {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  margin: 0;
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+.site-footer__legal a {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  text-decoration: none;
+}
+.site-footer__legal a:hover { opacity: 0.8; }
+
+/* ── Minimal variant ─────────────────────────────────────────── */
+.site-footer--minimal .site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+  /* ── Full section wrapper ─────────────────────────────────────── */
+.reviews {
+  background-color: var(--surface-secondary);
+  padding: var(--section-padding-y) var(--space-6);
+}
+.reviews__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Aggregate score row ──────────────────────────────────────── */
+.reviews__aggregate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  flex-wrap: wrap;
+}
+.reviews__score-number {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-black);
+  color: var(--text-primary);
+  line-height: 1;
+}
+.reviews__score-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.reviews__stars {
+  color: var(--accent-secondary);
+  font-size: var(--text-xl);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.reviews__count {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+.reviews__source-link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-action);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+}
+.reviews__source-link:hover { text-decoration: underline; }
+
+/* ── Cards grid ───────────────────────────────────────────────── */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+.reviews__card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-border-radius);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.reviews__card-stars {
+  color: var(--accent-secondary);
+  font-size: var(--text-base);
+  letter-spacing: 0.05em;
+}
+.reviews__card-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  flex-grow: 1;
+  font-style: italic;
+}
+.reviews__card-text::before { content: "\201C"; }
+.reviews__card-text::after  { content: "\201D"; }
+.reviews__card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--space-3);
+}
+.reviews__card-author {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+.reviews__card-date {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+  .service-area-tags {
+  font-family: var(--font-body);
+}
+.service-area-tags__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--space-3);
+}
+.service-area-tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.service-area-tags__item a,
+.service-area-tags__item span {
+  display: inline-block;
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+.service-area-tags__item a:hover {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  border-color: var(--action-primary);
+}
+
+  .breadcrumb {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--surface-secondary);
+  border-bottom: 1px solid var(--border-default);
+}
+.breadcrumb__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+.breadcrumb__item a {
+  color: var(--text-action);
+  text-decoration: none;
+}
+.breadcrumb__item a:hover { text-decoration: underline; }
+.breadcrumb__separator {
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+  user-select: none;
+}
+.breadcrumb__current {
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+  .site-header {
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-nav);
+  width: 100%;
+  z-index: 100;
+}
+.site-header[data-header="sticky"] { position: sticky; top: 0; }
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.site-header__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.site-header__logo:hover { color: var(--action-primary); }
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header__nav a {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.site-header__nav a:hover { color: var(--action-primary); }
+.site-header__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-header__phone:hover { opacity: 0.85; }
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-header__cta:hover { background-color: var(--btn-primary-bg-hover); }
+@media (max-width: 767px) { .site-header__nav { display: none; } }
+
+  .urgency-strip {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+}
+.urgency-strip__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.urgency-strip__message {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin: 0;
+}
+.urgency-strip__phone {
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--action-primary-text);
+  text-decoration: none;
+}
+.urgency-strip__phone:hover { opacity: 0.85; }
+.urgency-strip__link {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--action-primary-text);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.urgency-strip__link:hover { opacity: 0.85; }
+
+  .social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-links__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.social-links__link:hover {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  border-color: var(--action-primary);
+}
+/* In footer (dark surface): override base colors for visibility */
+.site-footer .social-links__link {
+  background-color: transparent;
+  border-color: var(--border-default);
+  color: var(--text-inverse);
+  opacity: 0.65;
+}
+.site-footer .social-links__link:hover {
+  background-color: var(--action-primary);
+  border-color: var(--action-primary);
+  color: var(--action-primary-text);
+  opacity: 1;
+}
+  </style>
+</head>
+<body>
+
+  <div class="urgency-strip" role="banner" aria-label="Promotional announcement">
+  <div class="urgency-strip__inner">
+    <p class="urgency-strip__message">Summer Special — $89 AC Tune-Up for Indianapolis homeowners. Limited appointments.</p>
+    <a href="tel:(317) 555-0144" class="urgency-strip__phone">(317) 555-0144</a>
+    <a href="contact.html" class="urgency-strip__link">Get a Free Estimate</a>
+  </div>
+</div>
+  <header class="site-header" data-header="nav">
+  <div class="site-header__inner">
+    <a href="https://www.indyclimatecontrol.test" class="site-header__logo">Indy Climate Control LLC</a>
+    <nav aria-label="Primary navigation">
+      <ul class="site-header__nav">
+        <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="site-header__cta">Get a Free Estimate</a>
+  </div>
+</header>
+
+  <main id="main-content">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb__inner">
+    <ol class="breadcrumb__list"
+        itemscope
+        itemtype="https://schema.org/BreadcrumbList">
+
+      <!-- Level 1: Home -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <a href="https://www.indyclimatecontrol.test" itemprop="item">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1">
+        <span class="breadcrumb__separator" aria-hidden="true">/</span>
+      </li>
+
+      <!-- Level 2: Section (e.g. Services) — remove if page is only 2 levels deep -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <a href="services.html" itemprop="item">
+          <span itemprop="name">Services</span>
+        </a>
+        <meta itemprop="position" content="2">
+        <span class="breadcrumb__separator" aria-hidden="true">/</span>
+      </li>
+
+      <!-- Level 3: Current page -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb__current" itemprop="name" aria-current="page">Our HVAC Services</span>
+        <meta itemprop="position" content="3">
+      </li>
+
+    </ol>
+  </div>
+</nav>
+
+    <!-- HERO SECTION -->
+    <section style="
+      background-color: var(--surface-inverse);
+      padding: var(--section-padding-y) var(--section-padding-x);
+      text-align: center;
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <h1 style="
+          font-family: var(--font-display);
+          font-size: var(--text-5xl);
+          font-weight: var(--font-black);
+          color: var(--text-inverse);
+          margin: 0 0 var(--space-4);
+          line-height: var(--leading-tight);
+        ">Our HVAC Services</h1>
+
+        <p style="
+          font-family: var(--font-body);
+          font-size: var(--text-xl);
+          color: var(--text-inverse-muted);
+          margin: 0 auto var(--space-8);
+          max-width: 680px;
+        ">Indianapolis, Speedway, Brownsburg, Avon, Plainfield — fast, certified, guaranteed.</p>
+
+        <!-- Primary CTA -->
+        <a href="contact.html" style="
+          display: inline-block;
+          background-color: var(--color-cta);
+          color: var(--color-cta-text);
+          font-family: var(--font-body);
+          font-size: var(--text-lg);
+          font-weight: var(--font-bold);
+          padding: var(--space-4) var(--space-10);
+          border-radius: var(--radius-btn);
+          text-decoration: none;
+          letter-spacing: var(--tracking-wide);
+        ">Get a Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID SECTION -->
+    <section style="
+      background-color: var(--surface-default);
+      padding: var(--section-padding-y) var(--section-padding-x);
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: var(--space-10);">
+          <h2 style="
+            font-family: var(--font-display);
+            font-size: var(--text-4xl);
+            font-weight: var(--font-bold);
+            color: var(--text-heading);
+            margin: 0 0 var(--space-3);
+          ">What We Offer</h2>
+          <p style="
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            color: var(--text-body);
+            margin: 0 auto;
+            max-width: 560px;
+          ">Professional HVAC & Home Comfort Systems services for Indianapolis and surrounding areas.</p>
+        </div>
+
+        <!-- 3-COLUMN RESPONSIVE CARD GRID -->
+        <div style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-6);
+        ">
+
+          
+          <div style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+          ">
+            <img
+              src="icons/ac-repair.svg"
+              alt="AC Repair & Diagnostics icon"
+              width="48"
+              height="48"
+              style="width: var(--space-12); height: var(--space-12); object-fit: contain;"
+            >
+            <h3 style="
+              font-family: var(--font-display);
+              font-size: var(--text-xl);
+              font-weight: var(--font-bold);
+              color: var(--text-heading);
+              margin: 0;
+            ">AC Repair & Diagnostics</h3>
+            <p style="
+              font-family: var(--font-body);
+              font-size: var(--text-base);
+              color: var(--text-body);
+              margin: 0;
+              flex-grow: 1;
+            ">Certified diagnosis and same-day repair on all major brands of central air conditioning systems.</p>
+            <a href="/services/ac-repair" style="
+              font-family: var(--font-body);
+              font-size: var(--text-sm);
+              font-weight: var(--font-semibold);
+              color: var(--color-link);
+              text-decoration: none;
+              letter-spacing: var(--tracking-wide);
+            ">Learn More &rarr;</a>
+          </div>
+          
+          <div style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+          ">
+            <img
+              src="icons/furnace.svg"
+              alt="Furnace Installation icon"
+              width="48"
+              height="48"
+              style="width: var(--space-12); height: var(--space-12); object-fit: contain;"
+            >
+            <h3 style="
+              font-family: var(--font-display);
+              font-size: var(--text-xl);
+              font-weight: var(--font-bold);
+              color: var(--text-heading);
+              margin: 0;
+            ">Furnace Installation</h3>
+            <p style="
+              font-family: var(--font-body);
+              font-size: var(--text-base);
+              color: var(--text-body);
+              margin: 0;
+              flex-grow: 1;
+            ">New high-efficiency gas and electric furnace installations with full manufacturer warranty registration.</p>
+            <a href="/services/furnace-install" style="
+              font-family: var(--font-body);
+              font-size: var(--text-sm);
+              font-weight: var(--font-semibold);
+              color: var(--color-link);
+              text-decoration: none;
+              letter-spacing: var(--tracking-wide);
+            ">Learn More &rarr;</a>
+          </div>
+          
+          <div style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+          ">
+            <img
+              src="icons/heat-pump.svg"
+              alt="Heat Pump Systems icon"
+              width="48"
+              height="48"
+              style="width: var(--space-12); height: var(--space-12); object-fit: contain;"
+            >
+            <h3 style="
+              font-family: var(--font-display);
+              font-size: var(--text-xl);
+              font-weight: var(--font-bold);
+              color: var(--text-heading);
+              margin: 0;
+            ">Heat Pump Systems</h3>
+            <p style="
+              font-family: var(--font-body);
+              font-size: var(--text-base);
+              color: var(--text-body);
+              margin: 0;
+              flex-grow: 1;
+            ">Energy-efficient heat pump installations and replacements engineered for Indiana's four-season climate.</p>
+            <a href="/services/heat-pump" style="
+              font-family: var(--font-body);
+              font-size: var(--text-sm);
+              font-weight: var(--font-semibold);
+              color: var(--color-link);
+              text-decoration: none;
+              letter-spacing: var(--tracking-wide);
+            ">Learn More &rarr;</a>
+          </div>
+          
+          <div style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            padding: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+          ">
+            <img
+              src="icons/emergency.svg"
+              alt="Emergency HVAC Service icon"
+              width="48"
+              height="48"
+              style="width: var(--space-12); height: var(--space-12); object-fit: contain;"
+            >
+            <h3 style="
+              font-family: var(--font-display);
+              font-size: var(--text-xl);
+              font-weight: var(--font-bold);
+              color: var(--text-heading);
+              margin: 0;
+            ">Emergency HVAC Service</h3>
+            <p style="
+              font-family: var(--font-body);
+              font-size: var(--text-base);
+              color: var(--text-body);
+              margin: 0;
+              flex-grow: 1;
+            ">24/7 emergency heating and cooling response for Indianapolis homeowners and small businesses.</p>
+            <a href="/services/emergency-hvac" style="
+              font-family: var(--font-body);
+              font-size: var(--text-sm);
+              font-weight: var(--font-semibold);
+              color: var(--color-link);
+              text-decoration: none;
+              letter-spacing: var(--tracking-wide);
+            ">Learn More &rarr;</a>
+          </div>
+          
+
+        </div><!-- end grid -->
+      </div>
+    </section>
+
+    <!-- SERVICE AREA TAGS -->
+    <section style="
+      background-color: var(--surface-muted);
+      padding: var(--section-padding-y) var(--section-padding-x);
+      text-align: center;
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <h2 style="
+          font-family: var(--font-display);
+          font-size: var(--text-2xl);
+          font-weight: var(--font-bold);
+          color: var(--text-heading);
+          margin: 0 0 var(--space-6);
+        ">Areas We Serve</h2>
+        <div class="service-area-tags" aria-label="Cities and areas we serve">
+  <p class="service-area-tags__label">Serving Indianapolis, Speedway, Brownsburg, Avon, Plainfield</p>
+  <ul class="service-area-tags__list">
+    <!--
+      Agent: Replace the items below with individual cities from Indianapolis, Speedway, Brownsburg, Avon, Plainfield.
+      Use <a href="/service-area/[city-slug]"> if location pages exist, else use <span>.
+    -->
+    <li class="service-area-tags__item"><a href="/service-area/indianapolis-hvac">Indianapolis, Speedway, Brownsburg, Avon, Plainfield</a></li>
+    <!-- Additional city tags go here -->
+  </ul>
+</div>
+      </div>
+    </section>
+
+    <!-- REVIEWS / STARS -->
+    <section style="
+      background-color: var(--surface-default);
+      padding: var(--section-padding-y) var(--section-padding-x);
+      text-align: center;
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <h2 style="
+          font-family: var(--font-display);
+          font-size: var(--text-2xl);
+          font-weight: var(--font-bold);
+          color: var(--text-heading);
+          margin: 0 0 var(--space-6);
+        ">What Our Customers Say</h2>
+        <section class="reviews" aria-labelledby="reviews-heading">
+  <div class="reviews__inner">
+
+    <!-- Aggregate Score -->
+    <div class="reviews__aggregate">
+      <span class="reviews__score-number">5.0</span>
+      <div class="reviews__score-meta">
+        <span class="reviews__stars" aria-label="5.0 out of 5 stars">★★★★★</span>
+        <span class="reviews__count">Based on 50 reviews</span>
+        <a href="https://maps.google.com/?q=indy+climate+control" class="reviews__source-link" target="_blank" rel="noopener">
+          Read on Google
+        </a>
+      </div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="reviews__grid">
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Mike and his crew replaced our entire HVAC system in one day. Price was fair and the install was spotless.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">Sandra K., Speedway Homeowner</p>
+          <span class="reviews__card-date">2026-04-10</span>
+        </footer>
+      </article>
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Called at 7pm on a Friday with a dead furnace. They were at my door by 9pm. Incredible service.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">James P., Avon Resident</p>
+          <span class="reviews__card-date">2026-03-22</span>
+        </footer>
+      </article>
+
+      <article class="reviews__card">
+        <div class="reviews__card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="reviews__card-text">Best AC tune-up I've had. They found a refrigerant leak the last company missed and fixed it same day.</p>
+        <footer class="reviews__card-footer">
+          <p class="reviews__card-author">Tina R., Indianapolis Homeowner</p>
+          <span class="reviews__card-date">2026-05-05</span>
+        </footer>
+      </article>
+
+    </div>
+  </div>
+</section>
+      </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section style="
+      background-color: var(--surface-inverse);
+      padding: var(--section-padding-y) var(--section-padding-x);
+      text-align: center;
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <h2 style="
+          font-family: var(--font-display);
+          font-size: var(--text-4xl);
+          font-weight: var(--font-black);
+          color: var(--text-inverse);
+          margin: 0 0 var(--space-4);
+        ">Ready to Get Started?</h2>
+        <p style="
+          font-family: var(--font-body);
+          font-size: var(--text-xl);
+          color: var(--text-inverse-muted);
+          margin: 0 auto var(--space-8);
+          max-width: 560px;
+        ">Contact indy_climate_control today for a free estimate. Serving Indianapolis, IN and surrounding communities.</p>
+
+        <div style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-4);
+          justify-content: center;
+          align-items: center;
+        ">
+          <a href="tel:(317) 555-0144" style="
+            display: inline-block;
+            background-color: var(--color-cta);
+            color: var(--color-cta-text);
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-btn);
+            text-decoration: none;
+            letter-spacing: var(--tracking-wide);
+          ">Call (317) 555-0144</a>
+
+          <a href="/contact" style="
+            display: inline-block;
+            background-color: transparent;
+            color: var(--text-inverse);
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            font-weight: var(--font-semibold);
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-btn);
+            border: 2px solid var(--color-border-inverse);
+            text-decoration: none;
+            letter-spacing: var(--tracking-wide);
+          ">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-footer="full">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+
+      <!-- Column 1: Brand + Phone -->
+      <div>
+        <p class="site-footer__brand">Indy Climate Control LLC</p>
+        <p class="site-footer__tagline">Serving Indianapolis and surrounding areas since 2018.</p>
+        <a href="tel:(317) 555-0144" class="site-footer__phone">(317) 555-0144</a>
+        <a href="contact.html" class="site-footer__cta-btn">Get a Free Estimate</a>
+      </div>
+
+      <!-- Column 2: Contact / NAP -->
+      <div>
+        <h3 class="site-footer__col-heading">Contact</h3>
+        <ul class="site-footer__nap" itemscope itemtype="https://schema.org/LocalBusiness">
+          <li itemprop="name" style="display:none">Indy Climate Control LLC</li>
+          <li><a href="tel:(317) 555-0144" itemprop="telephone">(317) 555-0144</a></li>
+          <li><a href="mailto:service@indyclimatecontrol.test">service@indyclimatecontrol.test</a></li>
+          <li itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">7822 W 86th St, Indianapolis, IN 46278</span>,
+            <span itemprop="addressLocality">Indianapolis</span>,
+            <span itemprop="addressRegion">IN</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Navigation -->
+      <div>
+        <h3 class="site-footer__col-heading">Quick Links</h3>
+        <ul class="site-footer__nav">
+          <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Service Area + Social slot -->
+      <div>
+        <h3 class="site-footer__col-heading">Service Area</h3>
+        <p style="font-family:var(--font-body);font-size:var(--text-sm);color:var(--text-inverse);opacity:0.7;margin:0 0 var(--space-4);">Indianapolis, Speedway, Brownsburg, Avon, Plainfield</p>
+        <ul class="social-links" aria-label="Social media links for Indy Climate Control LLC">
+
+  <li>
+    <a href="https://facebook.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Facebook"
+       target="_blank"
+       rel="noopener noreferrer">f</a>
+  </li>
+
+  <li>
+    <a href="https://instagram.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Instagram"
+       target="_blank"
+       rel="noopener noreferrer">&#9426;</a>
+  </li>
+
+  <li>
+    <a href="https://maps.google.com/?q=indy+climate+control"
+       class="social-links__link"
+       aria-label="Google Reviews"
+       target="_blank"
+       rel="noopener noreferrer">G</a>
+  </li>
+
+  <!-- Optional: remove if client not on Nextdoor -->
+  <li>
+    <a href="https://nextdoor.com/pages/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Nextdoor"
+       target="_blank"
+       rel="noopener noreferrer">N</a>
+  </li>
+
+  <!-- Optional: remove if client not on Yelp -->
+  <li>
+    <a href="https://yelp.com/biz/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Yelp"
+       target="_blank"
+       rel="noopener noreferrer">Y</a>
+  </li>
+
+</ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        &copy; 2026 Indy Climate Control LLC. All rights reserved.
+      </p>
+      <div class="site-footer__legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

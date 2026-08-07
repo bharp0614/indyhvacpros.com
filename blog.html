@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+` repeat block to compile blog posts.
+  3. Apply the correct skin by adding data-skin="<skin-id>" to <html> at deploy time.
+  4. Verify the canonical URL matches the live domain before publishing.
+
+  NEW TOKENS REGISTERED BY THIS TEMPLATE (add to token registry):
+    post_title      — Title of blog post
+    post_slug       — URL slug for blog post
+    post_excerpt    — Short excerpt for blog post
+    post_date       — Publish date for blog post
+    post_image_url  — Featured image URL for blog post
+    post_category   — Category label for blog post
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indy Climate Control LLC Blog | Tips & Insights</title>
+  <meta name="description" content="Read expert tips and advice from Indy Climate Control LLC serving Indianapolis, IN.">
+  <link rel="canonical" href="https://www.indyclimatecontrol.test/blog.html">
+  <link rel="stylesheet" href="../global-css-tokens.css">
+
+  <!-- Blog Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Indy Climate Control LLC Blog | Tips & Insights",
+    "description": "Read expert tips and advice from Indy Climate Control LLC serving Indianapolis, IN.",
+    "url": "https://www.indyclimatecontrol.test/blog.html",
+    "publisher": {
+      "@type": "LocalBusiness",
+      "name": "Indy Climate Control LLC",
+      "telephone": "(317) 555-0144",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7822 W 86th St, Indianapolis, IN 46278",
+        "addressLocality": "Indianapolis",
+        "addressRegion": "IN",
+        "postalCode": "46278"
+      },
+      "url": "https://www.indyclimatecontrol.test"
+    }
+  }
+  </script>
+<style>
+
+  /* --- Consolidated Component Styles --- */
+  .site-footer {
+  background-color: var(--surface-inverse);
+  padding: var(--section-padding-y) var(--space-6) var(--space-8);
+}
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Full variant grid ───────────────────────────────────────── */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--border-default);
+  opacity: 0.85;
+}
+.site-footer__col-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-4);
+}
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+  margin: 0 0 var(--space-3);
+}
+.site-footer__tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.65;
+  margin: 0 0 var(--space-6);
+  line-height: 1.5;
+}
+
+/* ── NAP ────────────────────────────────────────────────────── */
+.site-footer__nap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nap li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.75;
+}
+.site-footer__nap a {
+  color: var(--text-inverse);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.site-footer__nap a:hover { opacity: 1; }
+
+/* Phone in footer */
+.site-footer__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+/* ── Nav links ───────────────────────────────────────────────── */
+.site-footer__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__nav a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-inverse);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.site-footer__nav a:hover { opacity: 1; }
+
+/* ── Footer CTA ──────────────────────────────────────────────── */
+.site-footer__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-footer__cta-btn:hover { background-color: var(--btn-primary-bg-hover); }
+
+/* ── Bottom bar ──────────────────────────────────────────────── */
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.site-footer__copyright {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  margin: 0;
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+.site-footer__legal a {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-inverse);
+  opacity: 0.5;
+  text-decoration: none;
+}
+.site-footer__legal a:hover { opacity: 0.8; }
+
+/* ── Minimal variant ─────────────────────────────────────────── */
+.site-footer--minimal .site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+  .cta-inline {
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-left: 4px solid var(--action-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.cta-inline__message {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+.cta-inline__btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.cta-inline__btn:hover { background-color: var(--btn-primary-bg-hover); }
+.cta-inline__phone {
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+}
+.cta-inline__phone:hover { opacity: 0.85; }
+
+  .breadcrumb {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--surface-secondary);
+  border-bottom: 1px solid var(--border-default);
+}
+.breadcrumb__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+.breadcrumb__item a {
+  color: var(--text-action);
+  text-decoration: none;
+}
+.breadcrumb__item a:hover { text-decoration: underline; }
+.breadcrumb__separator {
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+  user-select: none;
+}
+.breadcrumb__current {
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+  .site-header {
+  background-color: var(--surface-primary);
+  box-shadow: var(--shadow-nav);
+  width: 100%;
+  z-index: 100;
+}
+.site-header[data-header="sticky"] { position: sticky; top: 0; }
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.site-header__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.site-header__logo:hover { color: var(--action-primary); }
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header__nav a {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+.site-header__nav a:hover { color: var(--action-primary); }
+.site-header__phone {
+  display: var(--phone-display);
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-header__phone:hover { opacity: 0.85; }
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--btn-transition);
+  box-shadow: var(--btn-primary-shadow);
+}
+.site-header__cta:hover { background-color: var(--btn-primary-bg-hover); }
+@media (max-width: 767px) { .site-header__nav { display: none; } }
+
+  .urgency-strip {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+}
+.urgency-strip__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.urgency-strip__message {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin: 0;
+}
+.urgency-strip__phone {
+  font-family: var(--font-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--action-primary-text);
+  text-decoration: none;
+}
+.urgency-strip__phone:hover { opacity: 0.85; }
+.urgency-strip__link {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--action-primary-text);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.urgency-strip__link:hover { opacity: 0.85; }
+
+  .social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-links__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--surface-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+.social-links__link:hover {
+  background-color: var(--action-primary);
+  color: var(--action-primary-text);
+  border-color: var(--action-primary);
+}
+/* In footer (dark surface): override base colors for visibility */
+.site-footer .social-links__link {
+  background-color: transparent;
+  border-color: var(--border-default);
+  color: var(--text-inverse);
+  opacity: 0.65;
+}
+.site-footer .social-links__link:hover {
+  background-color: var(--action-primary);
+  border-color: var(--action-primary);
+  color: var(--action-primary-text);
+  opacity: 1;
+}
+  </style>
+</head>
+<body>
+
+  <div class="urgency-strip" role="banner" aria-label="Promotional announcement">
+  <div class="urgency-strip__inner">
+    <p class="urgency-strip__message">Summer Special — $89 AC Tune-Up for Indianapolis homeowners. Limited appointments.</p>
+    <a href="tel:(317) 555-0144" class="urgency-strip__phone">(317) 555-0144</a>
+    <a href="#articles" class="urgency-strip__link">Browse Articles</a>
+  </div>
+</div>
+  <header class="site-header" data-header="nav">
+  <div class="site-header__inner">
+    <a href="https://www.indyclimatecontrol.test" class="site-header__logo">Indy Climate Control LLC</a>
+    <nav aria-label="Primary navigation">
+      <ul class="site-header__nav">
+        <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#articles" class="site-header__cta">Browse Articles</a>
+  </div>
+</header>
+
+  <main id="main-content">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb__inner">
+    <ol class="breadcrumb__list"
+        itemscope
+        itemtype="https://schema.org/BreadcrumbList">
+
+      <!-- Level 1: Home -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <a href="https://www.indyclimatecontrol.test" itemprop="item">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1">
+        <span class="breadcrumb__separator" aria-hidden="true">/</span>
+      </li>
+
+      <!-- Level 2: Section (e.g. Services) — remove if page is only 2 levels deep -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <a href="blog.html" itemprop="item">
+          <span itemprop="name">Blog</span>
+        </a>
+        <meta itemprop="position" content="2">
+        <span class="breadcrumb__separator" aria-hidden="true">/</span>
+      </li>
+
+      <!-- Level 3: Current page -->
+      <li class="breadcrumb__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb__current" itemprop="name" aria-current="page">Tips & Insights</span>
+        <meta itemprop="position" content="3">
+      </li>
+
+    </ol>
+  </div>
+</nav>
+
+    <!-- PAGE HERO -->
+    <section style="
+      background-color: var(--surface-inverse);
+      padding: var(--section-padding-y) var(--section-padding-x);
+      text-align: center;
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <h1 style="
+          font-family: var(--font-display);
+          font-size: var(--text-5xl);
+          font-weight: var(--font-black);
+          color: var(--text-inverse);
+          margin: 0 0 var(--space-4);
+          line-height: var(--leading-tight);
+        ">Tips & Insights</h1>
+
+        <p style="
+          font-family: var(--font-body);
+          font-size: var(--text-xl);
+          color: var(--text-inverse-muted);
+          margin: 0 auto;
+          max-width: 640px;
+        ">Expert advice from Indianapolis's trusted hvac team.</p>
+      </div>
+    </section>
+
+    <!-- BLOG POST GRID SECTION -->
+    <section style="
+      background-color: var(--surface-default);
+      padding: var(--section-padding-y) var(--section-padding-x);
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+
+        <!-- 3-COLUMN POST CARD GRID -->
+        <div style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-8);
+        ">
+
+          
+          <article style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+          ">
+            <a href="/blog/beat-indy-heat" tabindex="-1" aria-hidden="true">
+              <img
+                src="images/blog_heat.jpg"
+                alt="Beat the Indianapolis Summer Heat — AC Tune-Up Checklist"
+                width="800"
+                height="450"
+                style="width: 100%; height: var(--space-48); object-fit: cover; display: block;"
+                loading="lazy"
+              >
+            </a>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); flex-grow: 1;">
+              <span style="
+                font-family: var(--font-body);
+                font-size: var(--text-xs);
+                font-weight: var(--font-semibold);
+                color: var(--color-accent);
+                text-transform: uppercase;
+                letter-spacing: var(--tracking-widest);
+              ">Maintenance Tips</span>
+              <h2 style="margin: 0;">
+                <a href="/blog/beat-indy-heat" style="
+                  font-family: var(--font-display);
+                  font-size: var(--text-xl);
+                  font-weight: var(--font-bold);
+                  color: var(--text-heading);
+                  text-decoration: none;
+                  line-height: var(--leading-snug);
+                ">Beat the Indianapolis Summer Heat — AC Tune-Up Checklist</a>
+              </h2>
+              <time datetime="June 1, 2026" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                color: var(--text-muted);
+              ">June 1, 2026</time>
+              <p style="
+                font-family: var(--font-body);
+                font-size: var(--text-base);
+                color: var(--text-body);
+                margin: 0;
+                flex-grow: 1;
+              ">What every homeowner should check before the first 90-degree day hits Indianapolis.</p>
+              <a href="/blog/beat-indy-heat" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                font-weight: var(--font-semibold);
+                color: var(--color-link);
+                text-decoration: none;
+                margin-top: var(--space-2);
+              ">Read More &rarr;</a>
+            </div>
+          </article>
+          
+          <article style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+          ">
+            <a href="/blog/repair-replace-furnace" tabindex="-1" aria-hidden="true">
+              <img
+                src="images/blog_furnace.jpg"
+                alt="When to Repair vs. Replace Your Furnace in Indiana"
+                width="800"
+                height="450"
+                style="width: 100%; height: var(--space-48); object-fit: cover; display: block;"
+                loading="lazy"
+              >
+            </a>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); flex-grow: 1;">
+              <span style="
+                font-family: var(--font-body);
+                font-size: var(--text-xs);
+                font-weight: var(--font-semibold);
+                color: var(--color-accent);
+                text-transform: uppercase;
+                letter-spacing: var(--tracking-widest);
+              ">Heating Systems</span>
+              <h2 style="margin: 0;">
+                <a href="/blog/repair-replace-furnace" style="
+                  font-family: var(--font-display);
+                  font-size: var(--text-xl);
+                  font-weight: var(--font-bold);
+                  color: var(--text-heading);
+                  text-decoration: none;
+                  line-height: var(--leading-snug);
+                ">When to Repair vs. Replace Your Furnace in Indiana</a>
+              </h2>
+              <time datetime="June 8, 2026" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                color: var(--text-muted);
+              ">June 8, 2026</time>
+              <p style="
+                font-family: var(--font-body);
+                font-size: var(--text-base);
+                color: var(--text-body);
+                margin: 0;
+                flex-grow: 1;
+              ">A cost-benefit guide for central Indiana homeowners facing furnace end-of-life decisions.</p>
+              <a href="/blog/repair-replace-furnace" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                font-weight: var(--font-semibold);
+                color: var(--color-link);
+                text-decoration: none;
+                margin-top: var(--space-2);
+              ">Read More &rarr;</a>
+            </div>
+          </article>
+          
+          <article style="
+            background-color: var(--surface-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+          ">
+            <a href="/blog/heat-pumps-indiana" tabindex="-1" aria-hidden="true">
+              <img
+                src="images/blog_heat_pump.jpg"
+                alt="Heat Pumps in Indiana — Are They Worth It?"
+                width="800"
+                height="450"
+                style="width: 100%; height: var(--space-48); object-fit: cover; display: block;"
+                loading="lazy"
+              >
+            </a>
+            <div style="padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); flex-grow: 1;">
+              <span style="
+                font-family: var(--font-body);
+                font-size: var(--text-xs);
+                font-weight: var(--font-semibold);
+                color: var(--color-accent);
+                text-transform: uppercase;
+                letter-spacing: var(--tracking-widest);
+              ">Energy Efficiency</span>
+              <h2 style="margin: 0;">
+                <a href="/blog/heat-pumps-indiana" style="
+                  font-family: var(--font-display);
+                  font-size: var(--text-xl);
+                  font-weight: var(--font-bold);
+                  color: var(--text-heading);
+                  text-decoration: none;
+                  line-height: var(--leading-snug);
+                ">Heat Pumps in Indiana — Are They Worth It?</a>
+              </h2>
+              <time datetime="June 15, 2026" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                color: var(--text-muted);
+              ">June 15, 2026</time>
+              <p style="
+                font-family: var(--font-body);
+                font-size: var(--text-base);
+                color: var(--text-body);
+                margin: 0;
+                flex-grow: 1;
+              ">Energy savings analysis for heat pump vs. traditional split systems in our Midwest climate.</p>
+              <a href="/blog/heat-pumps-indiana" style="
+                font-family: var(--font-body);
+                font-size: var(--text-sm);
+                font-weight: var(--font-semibold);
+                color: var(--color-link);
+                text-decoration: none;
+                margin-top: var(--space-2);
+              ">Read More &rarr;</a>
+            </div>
+          </article>
+          
+
+        </div><!-- end grid -->
+      </div>
+    </section>
+
+    <!-- INLINE CTA -->
+    <section style="
+      background-color: var(--surface-muted);
+      padding: var(--section-padding-y) var(--section-padding-x);
+    ">
+      <div style="max-width: var(--container-max); margin: 0 auto;">
+        <!-- VARIANT: message + button (CON/TRN) -->
+<div class="cta-inline" role="complementary" aria-label="Call to action">
+  <p class="cta-inline__message">Ready for reliable HVAC & Home Comfort Systems service? Call or request a quote today.</p>
+  <a href="#articles" class="cta-inline__btn">Browse Articles</a>
+</div>
+
+<!-- VARIANT: phone-only (EMR) — swap in above when needed
+<div class="cta-inline" role="complementary" aria-label="Emergency contact">
+  <p class="cta-inline__message">Ready for reliable HVAC & Home Comfort Systems service? Call or request a quote today.</p>
+  <a href="tel:(317) 555-0144" class="cta-inline__phone">(317) 555-0144</a>
+</div>
+-->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-footer="full">
+  <div class="site-footer__inner">
+    <div class="site-footer__grid">
+
+      <!-- Column 1: Brand + Phone -->
+      <div>
+        <p class="site-footer__brand">Indy Climate Control LLC</p>
+        <p class="site-footer__tagline">Serving Indianapolis and surrounding areas since 2018.</p>
+        <a href="tel:(317) 555-0144" class="site-footer__phone">(317) 555-0144</a>
+        <a href="#articles" class="site-footer__cta-btn">Browse Articles</a>
+      </div>
+
+      <!-- Column 2: Contact / NAP -->
+      <div>
+        <h3 class="site-footer__col-heading">Contact</h3>
+        <ul class="site-footer__nap" itemscope itemtype="https://schema.org/LocalBusiness">
+          <li itemprop="name" style="display:none">Indy Climate Control LLC</li>
+          <li><a href="tel:(317) 555-0144" itemprop="telephone">(317) 555-0144</a></li>
+          <li><a href="mailto:service@indyclimatecontrol.test">service@indyclimatecontrol.test</a></li>
+          <li itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">7822 W 86th St, Indianapolis, IN 46278</span>,
+            <span itemprop="addressLocality">Indianapolis</span>,
+            <span itemprop="addressRegion">IN</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Navigation -->
+      <div>
+        <h3 class="site-footer__col-heading">Quick Links</h3>
+        <ul class="site-footer__nav">
+          <li><a href="https://www.indyclimatecontrol.test">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Service Area + Social slot -->
+      <div>
+        <h3 class="site-footer__col-heading">Service Area</h3>
+        <p style="font-family:var(--font-body);font-size:var(--text-sm);color:var(--text-inverse);opacity:0.7;margin:0 0 var(--space-4);">Indianapolis, Speedway, Brownsburg, Avon, Plainfield</p>
+        <ul class="social-links" aria-label="Social media links for Indy Climate Control LLC">
+
+  <li>
+    <a href="https://facebook.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Facebook"
+       target="_blank"
+       rel="noopener noreferrer">f</a>
+  </li>
+
+  <li>
+    <a href="https://instagram.com/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Instagram"
+       target="_blank"
+       rel="noopener noreferrer">&#9426;</a>
+  </li>
+
+  <li>
+    <a href="https://maps.google.com/?q=indy+climate+control"
+       class="social-links__link"
+       aria-label="Google Reviews"
+       target="_blank"
+       rel="noopener noreferrer">G</a>
+  </li>
+
+  <!-- Optional: remove if client not on Nextdoor -->
+  <li>
+    <a href="https://nextdoor.com/pages/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Nextdoor"
+       target="_blank"
+       rel="noopener noreferrer">N</a>
+  </li>
+
+  <!-- Optional: remove if client not on Yelp -->
+  <li>
+    <a href="https://yelp.com/biz/indyclimatecontrol"
+       class="social-links__link"
+       aria-label="Yelp"
+       target="_blank"
+       rel="noopener noreferrer">Y</a>
+  </li>
+
+</ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        &copy; 2026 Indy Climate Control LLC. All rights reserved.
+      </p>
+      <div class="site-footer__legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
