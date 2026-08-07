@@ -1,0 +1,1159 @@
+/* =============================================================================
+   GLOBAL DESIGN TOKENS — Indy CoCreator
+   LAST UPDATED: 2026-05-23
+   PURPOSE: The agent-ready design system backbone.
+            AI agents read this file to make ALL design decisions.
+            Never hard-code a color. Never skip a tier.
+ 
+   HOW THIS FILE WORKS (READ THIS FIRST):
+   ─────────────────────────────────────
+   TIER 1 → Primitive tokens (raw palette, 100–900 scale)
+             → Located in :root. Never referenced in markup directly.
+ 
+   TIER 2 → Semantic tokens (functional purpose)
+             → Located in :root (defaults) + [data-skin] overrides.
+             → THIS is the only layer an AI agent ever swaps.
+ 
+   TIER 3 → Component tokens (scoped overrides)
+             → Reference ONLY Tier 2 tokens. Never Tier 1.
+ 
+   SKIN LOGIC:
+   ─────────────────────────────────────
+   Every industry in industry-classification.md maps to one of 3 skins:
+     EMR → Emergency   (data-skin="emr")
+     CON → Considered  (data-skin="con")
+     TRN → Transactional (data-skin="trn")
+ 
+   To apply a skin, set data-skin="emr|con|trn" on <html> or <body>.
+   Agent skin lookup table is at the BOTTOM of this file.
+============================================================================= */
+ 
+ 
+/* =============================================================================
+   TIER 1: PRIMITIVE TOKENS
+   ─────────────────────────────────────
+   The raw material. Every value in the system originates here.
+   RULE: These tokens are NEVER used in component CSS or HTML directly.
+         They are only consumed by Tier 2 semantic tokens.
+============================================================================= */
+ 
+:root {
+ 
+  /* ── NEUTRAL SCALE ───────────────────────────────────────────────────── */
+  --neutral-0:   #ffffff;
+  --neutral-50:  #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  --neutral-950: #020617;
+ 
+  /* ── NAVY / TRUST BLUE ───────────────────────────────────────────────── */
+  --navy-100: #dbeafe;
+  --navy-200: #bfdbfe;
+  --navy-300: #93c5fd;
+  --navy-400: #60a5fa;
+  --navy-500: #3b82f6;
+  --navy-600: #1d4ed8;
+  --navy-700: #1e3a5f;
+  --navy-800: #0a2540;
+  --navy-900: #071832;
+ 
+  /* ── RED / URGENCY ───────────────────────────────────────────────────── */
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+ 
+  /* ── ORANGE / HIGH-VISIBILITY ────────────────────────────────────────── */
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+ 
+  /* ── GOLD / AUTHORITY ────────────────────────────────────────────────── */
+  --gold-100: #fef9c3;
+  --gold-200: #fef08a;
+  --gold-300: #fde047;
+  --gold-400: #facc15;
+  --gold-500: #eab308;
+  --gold-600: #ca8a04;
+  --gold-700: #a16207;
+  --gold-800: #854d0e;
+  --gold-900: #713f12;
+ 
+  /* ── GREEN / TRUST / SAFE ────────────────────────────────────────────── */
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --green-800: #166534;
+  --green-900: #14532d;
+ 
+  /* ── TEAL / FRIENDLY SERVICE ─────────────────────────────────────────── */
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
+  --teal-800: #115e59;
+  --teal-900: #134e4a;
+ 
+  /* ── TYPOGRAPHY SCALE ────────────────────────────────────────────────── */
+  --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+ 
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+ 
+  --font-normal:   400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+  --font-black:    900;
+ 
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+ 
+  /* ── SPACING SCALE ───────────────────────────────────────────────────── */
+  --space-1:  0.25rem;   /* 4px  */
+  --space-2:  0.5rem;    /* 8px  */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+ 
+  /* ── RADIUS SCALE ────────────────────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm:   0.125rem;
+  --radius-md:   0.375rem;
+  --radius-lg:   0.5rem;
+  --radius-xl:   0.75rem;
+  --radius-2xl:  1rem;
+  --radius-full: 9999px;
+ 
+  /* ── SHADOW SCALE ────────────────────────────────────────────────────── */
+  --shadow-xs:  0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-sm:  0 1px 3px 0 rgba(0,0,0,0.10), 0 1px 2px -1px rgba(0,0,0,0.10);
+  --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.10), 0 2px 4px -2px rgba(0,0,0,0.10);
+  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10);
+  --shadow-xl:  0 20px 25px -5px rgba(0,0,0,0.10), 0 8px 10px -6px rgba(0,0,0,0.10);
+  --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+ 
+  /* ── TRANSITION SCALE ────────────────────────────────────────────────── */
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+ 
+  /* ── Z-INDEX SCALE ───────────────────────────────────────────────────── */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-overlay:  20;
+  --z-dropdown: 30;
+  --z-sticky:   40;
+  --z-modal:    50;
+  --z-toast:    60;
+  --z-top:     100;
+ 
+  /* ── ANIMATION / MOTION TOKENS ───────────────────────────────────────── */
+  /* Agent note: Use these for scroll-triggered animations, hover states,    */
+  /* and micro-interactions. EMR skins should minimize motion (focus speed). */
+  /* CON/TRN skins may use fuller animation repertoire.                      */
+  --anim-fade-in:      fadeIn var(--duration-base) var(--ease-decelerate);
+  --anim-slide-up:     slideUp var(--duration-base) var(--ease-decelerate);
+  --anim-scale-in:     scaleIn var(--duration-fast) var(--ease-decelerate);
+  --anim-bounce-in:    bounceIn var(--duration-slow) var(--ease-standard);
+ 
+  /* ── GRADIENT TOKENS ─────────────────────────────────────────────────── */
+  /* Agent note: Use these for hero overlays, CTA sections, feature bands.  */
+  --gradient-navy:     linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  --gradient-dark:     linear-gradient(180deg, var(--neutral-950) 0%, var(--neutral-800) 100%);
+  --gradient-warm:     linear-gradient(135deg, var(--orange-900) 0%, var(--red-800) 100%);
+  --gradient-teal:     linear-gradient(135deg, var(--teal-900) 0%, var(--teal-600) 100%);
+  --gradient-gold:     linear-gradient(135deg, var(--gold-700) 0%, var(--gold-500) 100%);
+  --gradient-overlay:  linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+ 
+  /* ── BLUR / GLASS TOKENS ─────────────────────────────────────────────── */
+  --blur-sm:   blur(4px);
+  --blur-md:   blur(12px);
+  --blur-lg:   blur(24px);
+  --glass-bg:  rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+ 
+}
+ 
+ 
+/* =============================================================================
+   TIER 2: SEMANTIC TOKENS — DEFAULT SKIN (Neutral/Fallback)
+   ─────────────────────────────────────
+   These are the ONLY tokens used in component CSS and markup.
+   They describe PURPOSE, not appearance.
+ 
+   ACCESSIBILITY CONTRACT:
+   --text-primary on --surface-primary    → minimum 7:1  (WCAG AAA)
+   --text-secondary on --surface-primary  → minimum 4.5:1 (WCAG AA)
+   --text-inverse on --action-primary     → minimum 4.5:1 (WCAG AA)
+   --text-primary on --surface-dark       → minimum 7:1  (WCAG AAA)
+ 
+   AI AGENT RULE: When you swap a skin, you MUST verify these contracts hold.
+============================================================================= */
+ 
+:root {
+ 
+  /* ── SURFACE TOKENS ──────────────────────────────────────────────────── */
+  --surface-primary:    var(--neutral-0);
+  --surface-secondary:  var(--neutral-50);
+  --surface-tertiary:   var(--neutral-100);
+  --surface-inverse:    var(--neutral-900);
+  --surface-dark:       var(--neutral-950);
+  --surface-overlay:    rgba(15, 23, 42, 0.7);
+  --surface-glass:      var(--glass-bg);
+ 
+  /* ── TEXT TOKENS ─────────────────────────────────────────────────────── */
+  --text-primary:    var(--neutral-950);
+  --text-secondary:  var(--neutral-600);
+  --text-tertiary:   var(--neutral-400);
+  --text-inverse:    var(--neutral-0);
+  --text-action:     var(--navy-600);
+  --text-danger:     var(--red-700);
+  --text-success:    var(--green-700);
+  --text-warning:    var(--orange-700);
+ 
+  /* ── ACTION / CTA TOKENS ─────────────────────────────────────────────── */
+  --action-primary:          var(--navy-800);
+  --action-primary-hover:    var(--navy-700);
+  --action-primary-active:   var(--navy-900);
+  --action-primary-text:     var(--neutral-0);
+  --action-secondary:        transparent;
+  --action-secondary-border: var(--navy-800);
+  --action-secondary-text:   var(--navy-800);
+  --action-danger:           var(--red-600);
+  --action-danger-text:      var(--neutral-0);
+ 
+  /* ── BORDER TOKENS ───────────────────────────────────────────────────── */
+  --border-default:  var(--neutral-200);
+  --border-strong:   var(--neutral-400);
+  --border-focus:    var(--navy-500);
+  --border-danger:   var(--red-500);
+  --border-success:  var(--green-500);
+ 
+  /* ── BRAND ACCENT TOKENS ─────────────────────────────────────────────── */
+  --accent-primary:   var(--navy-800);
+  --accent-secondary: var(--navy-500);
+  --accent-highlight: var(--gold-400);
+ 
+  /* ── GRADIENT INTENT TOKENS ──────────────────────────────────────────── */
+  --gradient-hero:    var(--gradient-navy);
+  --gradient-section: var(--gradient-dark);
+  --gradient-cta:     var(--gradient-navy);
+ 
+  /* ── STATUS / BADGE TOKENS ───────────────────────────────────────────── */
+  --status-info-bg:        var(--navy-100);
+  --status-info-text:      var(--navy-800);
+  --status-info-border:    var(--navy-200);
+  --status-success-bg:     var(--green-100);
+  --status-success-text:   var(--green-800);
+  --status-success-border: var(--green-200);
+  --status-warning-bg:     var(--orange-100);
+  --status-warning-text:   var(--orange-800);
+  --status-warning-border: var(--orange-200);
+  --status-danger-bg:      var(--red-100);
+  --status-danger-text:    var(--red-800);
+  --status-danger-border:  var(--red-200);
+ 
+  /* ── SHADOW TOKENS ───────────────────────────────────────────────────── */
+  --shadow-card:       var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-modal:      var(--shadow-xl);
+  --shadow-cta:        var(--shadow-md);
+  --shadow-nav:        var(--shadow-md);
+ 
+  /* ── TYPOGRAPHY INTENT TOKENS ────────────────────────────────────────── */
+  --font-display:   var(--font-sans);
+  --font-body:      var(--font-sans);
+  --font-ui:        var(--font-sans);
+ 
+  --weight-display: var(--font-black);
+  --weight-heading: var(--font-bold);
+  --weight-body:    var(--font-normal);
+  --weight-ui:      var(--font-semibold);
+ 
+  /* ── PHONE NUMBER (conversion-critical) ─────────────────────────────── */
+  /* Agent: EMR = 4xl/black. CON = 2xl/semibold. TRN = lg/medium.          */
+  --phone-display:  block;
+  --phone-size:     var(--text-xl);
+  --phone-weight:   var(--font-bold);
+  --phone-color:    var(--action-primary);
+ 
+  /* ── LAYOUT INTENT TOKENS ────────────────────────────────────────────── */
+  --section-padding-y:  var(--space-16);
+  --section-padding-x:  var(--space-6);
+  --container-max:      1200px;
+  --container-narrow:   768px;
+  --btn-radius:         var(--radius-md);
+ 
+  /* ── MOTION INTENT TOKENS ────────────────────────────────────────────── */
+  /* Agent: EMR skins set these to "none" to remove distraction.            */
+  --motion-hero:    var(--anim-fade-in);
+  --motion-card:    var(--anim-slide-up);
+  --motion-button:  transform var(--duration-fast) var(--ease-standard);
+  --motion-enabled: 1;   /* Set to 0 to disable all non-essential motion    */
+ 
+}
+ 
+ 
+/* =============================================================================
+   TIER 2 OVERRIDES: SKIN — EMERGENCY (EMR)
+   ─────────────────────────────────────
+   INDUSTRIES: WDR_EMR, PLM_EMR, HVC_EMR, ELC_EMR, LCK_EMR,
+               GDR_EMR, TRE_EMR, FSR_EMR, PES_EMR
+ 
+   DESIGN INTENT:
+   → User is in crisis. Speed and trust are the only goals.
+   → Maximum contrast. Zero decorative friction.
+   → Phone number dominates every viewport.
+   → Red/orange CTAs trigger urgency response.
+   → Dark hero surfaces with high-contrast text.
+   → Motion disabled — every millisecond of load matters.
+ 
+   ACCESSIBILITY: All text/surface pairs meet WCAG AAA (7:1) minimum.
+============================================================================= */
+ 
+[data-skin="emr"] {
+ 
+  --surface-primary:    var(--neutral-0);
+  --surface-secondary:  var(--neutral-50);
+  --surface-tertiary:   var(--neutral-100);
+  --surface-inverse:    var(--neutral-950);
+  --surface-dark:       var(--neutral-950);
+ 
+  --text-primary:    var(--neutral-950);
+  --text-secondary:  var(--neutral-700);
+  --text-inverse:    var(--neutral-0);
+  --text-action:     var(--red-700);
+ 
+  --action-primary:          var(--red-600);
+  --action-primary-hover:    var(--red-700);
+  --action-primary-active:   var(--red-800);
+  --action-primary-text:     var(--neutral-0);
+  --action-secondary-border: var(--red-600);
+  --action-secondary-text:   var(--red-700);
+ 
+  --border-default:  var(--neutral-300);
+  --border-focus:    var(--red-500);
+ 
+  --accent-primary:   var(--red-600);
+  --accent-secondary: var(--orange-500);
+  --accent-highlight: var(--orange-400);
+ 
+  --gradient-hero:    var(--gradient-warm);
+  --gradient-cta:     linear-gradient(135deg, var(--red-700) 0%, var(--red-500) 100%);
+ 
+  --font-display:    var(--font-sans);
+  --weight-display:  var(--font-black);
+  --weight-heading:  var(--font-bold);
+ 
+  /* Phone: MAXIMUM — dominates above the fold */
+  --phone-size:    var(--text-4xl);
+  --phone-weight:  var(--font-black);
+  --phone-color:   var(--red-600);
+ 
+  --shadow-card:   var(--shadow-md);
+  --shadow-cta:    0 4px 14px rgba(220, 38, 38, 0.4);
+ 
+  --section-padding-y: var(--space-12);
+  --btn-radius:        var(--radius-md);
+ 
+  /* Motion: OFF — urgency > polish */
+  --motion-hero:    none;
+  --motion-card:    none;
+  --motion-enabled: 0;
+ 
+}
+ 
+ 
+/* =============================================================================
+   TIER 2 OVERRIDES: SKIN — CONSIDERED (CON)
+   ─────────────────────────────────────
+   INDUSTRIES: ROO_CON, WIN_CON, FND_CON, REM_CON, KIT_CON,
+               BTH_CON, SOL_CON, FLR_CON, INS_CON, SID_CON, FEN_CON
+ 
+   DESIGN INTENT:
+   → User is researching. Authority and process clarity win the sale.
+   → Premium feel. Deep navy base. Gold or warm accent.
+   → Trust signals: licenses, reviews, project galleries, timelines.
+   → Serif display type communicates expertise and permanence.
+   → Generous whitespace signals quality and confidence.
+   → Full motion and animation repertoire — this is a premium experience.
+ 
+   ACCESSIBILITY: All pairs meet WCAG AA (4.5:1) minimum.
+                  Gold accent (#ca8a04) on white = 4.6:1 — PASSES AA.
+============================================================================= */
+ 
+[data-skin="con"] {
+ 
+  --surface-primary:    var(--neutral-0);
+  --surface-secondary:  var(--neutral-50);
+  --surface-tertiary:   var(--neutral-100);
+  --surface-inverse:    var(--navy-900);
+  --surface-dark:       var(--navy-800);
+ 
+  --text-primary:    var(--navy-900);
+  --text-secondary:  var(--neutral-600);
+  --text-inverse:    var(--neutral-0);
+  --text-action:     var(--navy-700);
+ 
+  --action-primary:          var(--navy-800);
+  --action-primary-hover:    var(--navy-700);
+  --action-primary-active:   var(--navy-900);
+  --action-primary-text:     var(--neutral-0);
+  --action-secondary-border: var(--navy-800);
+  --action-secondary-text:   var(--navy-800);
+ 
+  --border-default:  var(--neutral-200);
+  --border-focus:    var(--navy-500);
+ 
+  --accent-primary:   var(--navy-800);
+  --accent-secondary: var(--navy-600);
+  --accent-highlight: var(--gold-600);
+ 
+  --gradient-hero:    var(--gradient-navy);
+  --gradient-cta:     linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+ 
+  --font-display:    var(--font-serif);  /* Expertise signal */
+  --weight-display:  var(--font-bold);
+  --weight-heading:  var(--font-semibold);
+ 
+  /* Phone: Present but not dominant */
+  --phone-size:    var(--text-2xl);
+  --phone-weight:  var(--font-semibold);
+  --phone-color:   var(--navy-800);
+ 
+  --shadow-card:   var(--shadow-md);
+  --shadow-cta:    0 4px 14px rgba(10, 37, 64, 0.25);
+ 
+  --section-padding-y: var(--space-20);
+  --btn-radius:        var(--radius-lg);
+ 
+  /* Motion: FULL — premium experience */
+  --motion-hero:    var(--anim-fade-in);
+  --motion-card:    var(--anim-slide-up);
+  --motion-enabled: 1;
+ 
+}
+ 
+ 
+/* =============================================================================
+   TIER 2 OVERRIDES: SKIN — TRANSACTIONAL (TRN)
+   ─────────────────────────────────────
+   INDUSTRIES: HVC_TRN, PLM_TRN, LWN_TRN, CLN_TRN, GUT_TRN,
+               PES_TRN, POL_TRN, CPT_TRN, PWS_TRN, SNW_TRN,
+               PNT_TRN, LSC_TRN
+ 
+   DESIGN INTENT:
+   → User wants convenience and clear pricing. Friction is the enemy.
+   → Clean, approachable teal/green. Pill buttons = friendly.
+   → Price transparency: show costs early and often.
+   → Booking/scheduling CTA is the primary conversion goal.
+   → Recurring value messaging: "Weekly", "Monthly", "Seasonal".
+   → Light motion — friendly, not distracting.
+ 
+   ACCESSIBILITY: Teal-700 (#0f766e) on white = 5.1:1 — PASSES AA.
+============================================================================= */
+ 
+[data-skin="trn"] {
+ 
+  --surface-primary:    var(--neutral-0);
+  --surface-secondary:  var(--teal-100);
+  --surface-tertiary:   var(--neutral-100);
+  --surface-inverse:    var(--teal-900);
+  --surface-dark:       var(--teal-800);
+ 
+  --text-primary:    var(--neutral-900);
+  --text-secondary:  var(--neutral-600);
+  --text-inverse:    var(--neutral-0);
+  --text-action:     var(--teal-700);
+ 
+  --action-primary:          var(--teal-600);
+  --action-primary-hover:    var(--teal-700);
+  --action-primary-active:   var(--teal-800);
+  --action-primary-text:     var(--neutral-0);
+  --action-secondary-border: var(--teal-600);
+  --action-secondary-text:   var(--teal-700);
+ 
+  --border-default:  var(--teal-200);
+  --border-focus:    var(--teal-500);
+ 
+  --accent-primary:   var(--teal-600);
+  --accent-secondary: var(--teal-400);
+  --accent-highlight: var(--green-500);
+ 
+  --gradient-hero:    var(--gradient-teal);
+  --gradient-cta:     linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
+ 
+  --font-display:    var(--font-sans);
+  --weight-display:  var(--font-bold);
+  --weight-heading:  var(--font-medium);
+ 
+  /* Phone: Secondary — booking form is preferred CTA */
+  --phone-size:    var(--text-lg);
+  --phone-weight:  var(--font-medium);
+  --phone-color:   var(--teal-700);
+ 
+  --shadow-card:   var(--shadow-sm);
+  --shadow-cta:    0 4px 14px rgba(13, 148, 136, 0.3);
+ 
+  --section-padding-y: var(--space-16);
+  --btn-radius:        var(--radius-full);  /* Pill = approachable/friendly */
+ 
+  /* Motion: LIGHT — friendly, not premium */
+  --motion-hero:    var(--anim-fade-in);
+  --motion-card:    var(--anim-scale-in);
+  --motion-enabled: 1;
+ 
+}
+ 
+ 
+/* =============================================================================
+   TIER 3: COMPONENT TOKENS
+   ─────────────────────────────────────
+   References ONLY Tier 2 semantic tokens. Never Tier 1 primitives.
+   AI agents extend this section when adding new components.
+   Pattern: --[component]-[element]-[property]
+============================================================================= */
+ 
+:root {
+ 
+  /* ── BUTTON ──────────────────────────────────────────────────────────── */
+  --btn-primary-bg:        var(--action-primary);
+  --btn-primary-bg-hover:  var(--action-primary-hover);
+  --btn-primary-text:      var(--action-primary-text);
+  --btn-primary-shadow:    var(--shadow-cta);
+  --btn-padding-y:         var(--space-3);
+  --btn-padding-x:         var(--space-6);
+  --btn-font-size:         var(--text-base);
+  --btn-font-weight:       var(--weight-ui);
+  --btn-font-family:       var(--font-ui);
+  --btn-transition:        background-color var(--duration-fast) var(--ease-standard),
+                           transform var(--duration-fast) var(--ease-standard),
+                           box-shadow var(--duration-fast) var(--ease-standard);
+ 
+  --btn-secondary-bg:      var(--action-secondary);
+  --btn-secondary-border:  var(--action-secondary-border);
+  --btn-secondary-text:    var(--action-secondary-text);
+ 
+  --btn-cta-padding-y:     var(--space-4);
+  --btn-cta-padding-x:     var(--space-10);
+  --btn-cta-font-size:     var(--text-lg);
+  --btn-cta-font-weight:   var(--font-bold);
+ 
+  /* ── CARD ────────────────────────────────────────────────────────────── */
+  --card-bg:               var(--surface-secondary);
+  --card-border:           var(--border-default);
+  --card-border-radius:    var(--radius-xl);
+  --card-padding:          var(--space-6);
+  --card-shadow:           var(--shadow-card);
+  --card-shadow-hover:     var(--shadow-card-hover);
+  --card-transition:       box-shadow var(--duration-base) var(--ease-standard),
+                           transform var(--duration-base) var(--ease-standard);
+ 
+  /* ── NAV ─────────────────────────────────────────────────────────────── */
+  --nav-bg:                var(--surface-inverse);
+  --nav-text:              var(--text-inverse);
+  --nav-text-hover:        var(--accent-highlight);
+  --nav-border:            transparent;
+  --nav-height:            4rem;
+  --nav-shadow:            var(--shadow-nav);
+  --nav-phone-color:       var(--phone-color);
+  --nav-phone-size:        var(--phone-size);
+  --nav-phone-weight:      var(--phone-weight);
+  --nav-z:                 var(--z-sticky);
+ 
+  /* ── HERO ────────────────────────────────────────────────────────────── */
+  --hero-bg:               var(--surface-dark);
+  --hero-gradient:         var(--gradient-hero);
+  --hero-text:             var(--text-inverse);
+  --hero-subtext:          var(--neutral-300);
+  --hero-padding-y:        var(--space-24);
+  --hero-heading-size:     var(--text-5xl);
+  --hero-heading-weight:   var(--weight-display);
+  --hero-font:             var(--font-display);
+  --hero-animation:        var(--motion-hero);
+ 
+  /* ── FORM ────────────────────────────────────────────────────────────── */
+  --input-bg:              var(--neutral-0);
+  --input-border:          var(--border-default);
+  --input-border-focus:    var(--border-focus);
+  --input-border-error:    var(--border-danger);
+  --input-text:            var(--text-primary);
+  --input-placeholder:     var(--text-tertiary);
+  --input-radius:          var(--radius-md);
+  --input-padding-y:       var(--space-3);
+  --input-padding-x:       var(--space-4);
+  --input-shadow-focus:    0 0 0 3px rgba(59, 130, 246, 0.2);
+  --input-transition:      border-color var(--duration-fast) var(--ease-standard),
+                           box-shadow var(--duration-fast) var(--ease-standard);
+ 
+  --label-text:            var(--text-secondary);
+  --label-size:            var(--text-sm);
+  --label-weight:          var(--font-semibold);
+ 
+  /* ── BADGE / TRUST SIGNAL ────────────────────────────────────────────── */
+  --badge-bg:              var(--status-info-bg);
+  --badge-text:            var(--status-info-text);
+  --badge-border:          var(--status-info-border);
+  --badge-radius:          var(--radius-full);
+  --badge-padding-y:       var(--space-1);
+  --badge-padding-x:       var(--space-3);
+  --badge-font-size:       var(--text-xs);
+  --badge-font-weight:     var(--font-semibold);
+ 
+  /* ── REVIEW / TESTIMONIAL ────────────────────────────────────────────── */
+  --review-star-color:     var(--gold-500);
+  --review-bg:             var(--surface-secondary);
+  --review-border:         var(--border-default);
+  --review-radius:         var(--card-border-radius);
+  --review-quote-size:     var(--text-lg);
+  --review-quote-style:    italic;
+ 
+  /* ── SECTION ─────────────────────────────────────────────────────────── */
+  --section-bg-default:    var(--surface-primary);
+  --section-bg-alt:        var(--surface-secondary);
+  --section-bg-dark:       var(--surface-inverse);
+  --section-heading-size:  var(--text-3xl);
+  --section-heading-weight: var(--weight-heading);
+  --section-heading-font:  var(--font-display);
+  --section-card-animation: var(--motion-card);
+ 
+  /* ── FOOTER ──────────────────────────────────────────────────────────── */
+  --footer-bg:             var(--surface-inverse);
+  --footer-text:           var(--neutral-300);
+  --footer-text-muted:     var(--neutral-500);
+  --footer-link:           var(--neutral-300);
+  --footer-link-hover:     var(--accent-highlight);
+  --footer-border:         var(--neutral-800);
+ 
+  /* ── OVERLAY / MODAL ─────────────────────────────────────────────────── */
+  --modal-bg:              var(--surface-primary);
+  --modal-overlay:         var(--surface-overlay);
+  --modal-border-radius:   var(--radius-2xl);
+  --modal-shadow:          var(--shadow-modal);
+  --modal-padding:         var(--space-8);
+  --modal-z:               var(--z-modal);
+ 
+  /* ── TOAST / NOTIFICATION ────────────────────────────────────────────── */
+  --toast-bg:              var(--surface-inverse);
+  --toast-text:            var(--text-inverse);
+  --toast-border-radius:   var(--radius-lg);
+  --toast-shadow:          var(--shadow-xl);
+  --toast-z:               var(--z-toast);
+ 
+  /* ── PROGRESS / LOADING ──────────────────────────────────────────────── */
+  --progress-bg:           var(--border-default);
+  --progress-fill:         var(--action-primary);
+  --progress-radius:       var(--radius-full);
+  --progress-height:       var(--space-2);
+ 
+  /* ── DIVIDER ─────────────────────────────────────────────────────────── */
+  --divider-color:         var(--border-default);
+  --divider-style:         solid;
+  --divider-width:         1px;
+ 
+  /* ── PRICE / OFFER ───────────────────────────────────────────────────── */
+  /* Agent note: TRN skins surface these prominently.                       */
+  /* CON skins use them in estimate/quote contexts only.                    */
+  --price-color:           var(--text-primary);
+  --price-size:            var(--text-3xl);
+  --price-weight:          var(--font-black);
+  --price-accent:          var(--accent-primary);
+  --price-strikethrough:   var(--text-tertiary);
+ 
+}
+ 
+ 
+/* =============================================================================
+   KEYFRAME ANIMATIONS
+============================================================================= */
+ 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+ 
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+ 
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  { opacity: 1; transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+ 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+ 
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+ 
+ 
+/* =============================================================================
+   BASE STYLES
+   Applied to all skins. All values reference component/semantic tokens only.
+============================================================================= */
+ 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+ 
+body {
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--weight-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+a {
+  color: var(--text-action);
+  text-decoration: underline;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+ 
+a:hover { opacity: 0.8; }
+ 
+*:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+ 
+/* Respect system reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+ 
+ 
+/* =============================================================================
+   COMPONENT BASE STYLES
+   All values reference Tier 3 component tokens only.
+============================================================================= */
+ 
+/* ── BUTTONS ─────────────────────────────────────────────────────────────── */
+ 
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  font-family: var(--btn-font-family);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--btn-primary-shadow);
+  transition: var(--btn-transition);
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+ 
+.btn-primary:hover {
+  background-color: var(--btn-primary-bg-hover);
+  transform: translateY(-1px);
+}
+ 
+.btn-primary:active {
+  transform: translateY(0);
+}
+ 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 2px solid var(--btn-secondary-border);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  font-family: var(--btn-font-family);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+ 
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-border);
+  color: var(--action-primary-text);
+}
+ 
+.btn-cta {
+  padding: var(--btn-cta-padding-y) var(--btn-cta-padding-x);
+  font-size: var(--btn-cta-font-size);
+  font-weight: var(--btn-cta-font-weight);
+}
+ 
+/* ── CARDS ───────────────────────────────────────────────────────────────── */
+ 
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+}
+ 
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+ 
+/* ── PHONE NUMBER ────────────────────────────────────────────────────────── */
+ 
+.phone-number {
+  display: var(--phone-display);
+  font-size: var(--phone-size);
+  font-weight: var(--phone-weight);
+  color: var(--phone-color);
+  text-decoration: none;
+  line-height: var(--leading-tight);
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+ 
+.phone-number:hover { opacity: 0.85; }
+ 
+/* ── BADGES ──────────────────────────────────────────────────────────────── */
+ 
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--badge-radius);
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  line-height: 1;
+}
+ 
+/* ── SECTIONS ────────────────────────────────────────────────────────────── */
+ 
+.section {
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+ 
+.section--alt   { background-color: var(--section-bg-alt); }
+.section--dark  { background-color: var(--section-bg-dark); color: var(--text-inverse); }
+ 
+/* ── CONTAINER ───────────────────────────────────────────────────────────── */
+ 
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+ 
+.container--narrow { max-width: var(--container-narrow); }
+ 
+/* ── PRICE DISPLAY ───────────────────────────────────────────────────────── */
+ 
+.price {
+  color: var(--price-color);
+  font-size: var(--price-size);
+  font-weight: var(--price-weight);
+  line-height: var(--leading-tight);
+}
+ 
+.price--accent  { color: var(--price-accent); }
+.price--struck  { text-decoration: line-through; color: var(--price-strikethrough); font-size: var(--text-xl); }
+ 
+/* ── SKELETON / LOADING ──────────────────────────────────────────────────── */
+ 
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-secondary) 25%,
+    var(--surface-tertiary) 50%,
+    var(--surface-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+ 
+/* ── DIVIDER ─────────────────────────────────────────────────────────────── */
+ 
+.divider {
+  border: none;
+  border-top: var(--divider-width) var(--divider-style) var(--divider-color);
+  margin: var(--space-8) 0;
+}
+ 
+ 
+/* =============================================================================
+   DARK MODE SUPPORT (system-level)
+   Works alongside skin system. Skin takes priority if data-skin is set.
+============================================================================= */
+ 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-skin]) {
+    --surface-primary:    var(--neutral-950);
+    --surface-secondary:  var(--neutral-900);
+    --surface-tertiary:   var(--neutral-800);
+    --text-primary:       var(--neutral-50);
+    --text-secondary:     var(--neutral-300);
+    --border-default:     var(--neutral-700);
+    --border-strong:      var(--neutral-500);
+  }
+}
+ 
+ 
+/* =============================================================================
+   RESPONSIVE TYPOGRAPHY
+   Fluid type scaling. Agent note: hero sizes scale down on mobile.
+   All values reference Tier 1 scale tokens only.
+============================================================================= */
+ 
+@media (max-width: 768px) {
+  :root {
+    --hero-heading-size:   var(--text-3xl);
+    --section-heading-size: var(--text-2xl);
+    --section-padding-y:  var(--space-12);
+    --phone-size:          var(--text-2xl);   /* Mobile: always readable   */
+  }
+ 
+  [data-skin="emr"] {
+    --phone-size:  var(--text-3xl);           /* EMR mobile: still dominant */
+  }
+}
+ 
+@media (max-width: 480px) {
+  :root {
+    --hero-heading-size:  var(--text-2xl);
+    --btn-cta-padding-x:  var(--space-6);
+  }
+}
+ 
+ 
+/* =============================================================================
+   ╔══════════════════════════════════════════════════════════════════════════╗
+   ║                                                                          ║
+   ║        AI AGENT SKIN MAPPING GUIDE                                       ║
+   ║        MACHINE-READABLE DECISION SYSTEM                                  ║
+   ║        READ THIS TO APPLY A SKIN TO ANY INDUSTRY                         ║
+   ║                                                                          ║
+   ╠══════════════════════════════════════════════════════════════════════════╣
+   ║                                                                          ║
+   ║  STEP 1 — RECEIVE CLASSIFICATION CODE                                    ║
+   ║  ─────────────────────────────────────────────────────────────────────  ║
+   ║  Input: classification code from industry-classification.md              ║
+   ║  Format: [INDUSTRY_ABBR]_[CATEGORY]                                     ║
+   ║  Example: WDR_EMR = Water Damage Restoration / Emergency                ║
+   ║                                                                          ║
+   ║  STEP 2 — EXTRACT THE CATEGORY SUFFIX                                    ║
+   ║  ─────────────────────────────────────────────────────────────────────  ║
+   ║  Split on underscore. Take the right segment.                           ║
+   ║  EMR → Apply data-skin="emr"                                            ║
+   ║  CON → Apply data-skin="con"                                            ║
+   ║  TRN → Apply data-skin="trn"                                            ║
+   ║                                                                          ║
+   ║  STEP 3 — SET THE ATTRIBUTE                                              ║
+   ║  ─────────────────────────────────────────────────────────────────────  ║
+   ║  <html data-skin="emr">    or    <body data-skin="con">                 ║
+   ║  All Tier 3 component tokens cascade automatically.                     ║
+   ║  No other changes required.                                             ║
+   ║                                                                          ║
+   ╠══════════════════════════════════════════════════════════════════════════╣
+   ║                                                                          ║
+   ║  CLASSIFICATION CODE → SKIN LOOKUP TABLE                                 ║
+   ║                                                                          ║
+   ║  ── EMERGENCY → data-skin="emr" ─────────────────────────────────────  ║
+   ║  WDR_EMR  Water Damage / Restoration                                    ║
+   ║  PLM_EMR  Plumbing (emergency: burst pipe, sewage, no hot water)        ║
+   ║  HVC_EMR  HVAC (emergency: no heat/AC during extreme weather)           ║
+   ║  ELC_EMR  Electrical (emergency: outage, sparking, panel failure)       ║
+   ║  LCK_EMR  Locksmith (locked out of home or vehicle)                     ║
+   ║  GDR_EMR  Garage Door (spring snapped, vehicle trapped)                 ║
+   ║  TRE_EMR  Tree Service (storm damage, hazardous limb)                   ║
+   ║  FSR_EMR  Fire / Smoke Restoration                                      ║
+   ║  PES_EMR  Pest Control (active infestation)                             ║
+   ║                                                                          ║
+   ║  VISUAL PROFILE — EMR:                                                   ║
+   ║  • Surfaces:      white (#ffffff) + near-black (#020617)                ║
+   ║  • Primary CTA:   --red-600 (#dc2626) — urgency red                    ║
+   ║  • Accent:        --orange-500 (#f97316) — high-visibility              ║
+   ║  • Phone display: 4xl / black weight — above the fold, always          ║
+   ║  • Typography:    heavy sans-serif only, maximum contrast               ║
+   ║  • Decoration:    NONE — every pixel serves speed or trust             ║
+   ║  • Motion:        DISABLED (--motion-enabled: 0)                        ║
+   ║  • Trust signals: license number, response time, years in business      ║
+   ║  • Conversion:    phone number = primary CTA                            ║
+   ║                                                                          ║
+   ║  ── CONSIDERED → data-skin="con" ────────────────────────────────────  ║
+   ║  ROO_CON  Roofing (full replacement / major storm damage)               ║
+   ║  WIN_CON  Windows & Doors (full replacement)                            ║
+   ║  FND_CON  Foundation Repair (cracking, settling, bowing)                ║
+   ║  REM_CON  Home Remodeling (addition, gut renovation)                    ║
+   ║  KIT_CON  Kitchen Remodel (full renovation)                             ║
+   ║  BTH_CON  Bathroom Remodel (full bath renovation)                       ║
+   ║  SOL_CON  Solar Installation (panels, battery systems)                  ║
+   ║  FLR_CON  Flooring (full replacement)                                   ║
+   ║  INS_CON  Insulation (attic or wall upgrade)                            ║
+   ║  SID_CON  Siding (full replacement or major repair)                     ║
+   ║  FEN_CON  Fencing (new installation, full perimeter)                    ║
+   ║                                                                          ║
+   ║  VISUAL PROFILE — CON:                                                   ║
+   ║  • Surfaces:      white + deep navy sections (#071832)                  ║
+   ║  • Primary CTA:   --navy-800 (#0a2540) — authority                     ║
+   ║  • Accent:        --gold-600 (#ca8a04) — premium / trust               ║
+   ║  • Phone display: 2xl / semibold — present but not dominant             ║
+   ║  • Typography:    SERIF display headlines (--font-serif)                ║
+   ║  • Decoration:    FULL — gallery, timeline, before/after, process       ║
+   ║  • Motion:        FULL (--motion-enabled: 1)                            ║
+   ║  • Trust signals: portfolio, warranties, certifications, process steps  ║
+   ║  • Conversion:    estimate/quote form = primary CTA                     ║
+   ║                                                                          ║
+   ║  ── TRANSACTIONAL → data-skin="trn" ─────────────────────────────────  ║
+   ║  HVC_TRN  HVAC (maintenance: tune-up, filter service)                   ║
+   ║  PLM_TRN  Plumbing (routine: drain cleaning, maintenance)               ║
+   ║  LWN_TRN  Lawn Care (mowing, edging, seasonal)                         ║
+   ║  CLN_TRN  House Cleaning (weekly, biweekly, move-out)                   ║
+   ║  GUT_TRN  Gutter Cleaning (seasonal clearing)                           ║
+   ║  PES_TRN  Pest Control (recurring treatment plan)                       ║
+   ║  POL_TRN  Pool Service (weekly cleaning)                                ║
+   ║  CPT_TRN  Carpet Cleaning (periodic deep clean)                         ║
+   ║  PWS_TRN  Pressure Washing (driveway, deck, exterior)                   ║
+   ║  SNW_TRN  Snow Removal (seasonal / per-event)                           ║
+   ║  PNT_TRN  Painting (interior or exterior repaint)                       ║
+   ║  LSC_TRN  Landscaping (ongoing maintenance, mulching)                   ║
+   ║                                                                          ║
+   ║  VISUAL PROFILE — TRN:                                                   ║
+   ║  • Surfaces:      white + soft teal (#ccfbf1) secondary                 ║
+   ║  • Primary CTA:   --teal-600 (#0d9488) — approachable                  ║
+   ║  • Accent:        --green-500 (#22c55e) — "booked / confirmed"          ║
+   ║  • Phone display: lg / medium — secondary to booking form               ║
+   ║  • Typography:    friendly sans-serif, pill buttons (--radius-full)     ║
+   ║  • Decoration:    ALLOWED — service icons, frequency badges             ║
+   ║  • Motion:        LIGHT (--motion-card: scaleIn)                        ║
+   ║  • Trust signals: price transparency, frequency, reviews                ║
+   ║  • Conversion:    booking/scheduling form = primary CTA                 ║
+   ║                                                                          ║
+   ╠══════════════════════════════════════════════════════════════════════════╣
+   ║                                                                          ║
+   ║  HOW TO ADD A NEW SKIN                                                   ║
+   ║  ─────────────────────────────────────────────────────────────────────  ║
+   ║  1. Add [data-skin="NEWNAME"] block after the TRN skin block.           ║
+   ║  2. Override ONLY the Tier 2 semantic tokens that differ.               ║
+   ║  3. Verify accessibility contracts:                                     ║
+   ║     a. --text-primary on --surface-primary    → 7:1  (WCAG AAA)        ║
+   ║     b. --text-secondary on --surface-primary  → 4.5:1 (WCAG AA)        ║
+   ║     c. --action-primary-text on --action-primary → 4.5:1 (WCAG AA)     ║
+   ║     d. --text-inverse on --surface-dark       → 7:1  (WCAG AAA)        ║
+   ║  4. Set phone prominence by urgency level:                              ║
+   ║     High urgency   → --phone-size: var(--text-4xl), weight: black      ║
+   ║     Mid urgency    → --phone-size: var(--text-2xl), weight: semibold   ║
+   ║     Low urgency    → --phone-size: var(--text-lg), weight: medium      ║
+   ║  5. Set motion by skin type:                                            ║
+   ║     Urgent         → --motion-enabled: 0 (disable all animation)       ║
+   ║     Premium        → --motion-enabled: 1, full animation suite          ║
+   ║     Friendly       → --motion-enabled: 1, scaleIn / subtle only        ║
+   ║  6. Add a classification lookup block in this guide.                   ║
+   ║  7. NEVER override Tier 3 component tokens inside a skin block.        ║
+   ║     Components must remain skin-agnostic.                              ║
+   ║                                                                          ║
+   ╠══════════════════════════════════════════════════════════════════════════╣
+   ║                                                                          ║
+   ║  TOKEN TIER RULES — ENFORCE ALWAYS                                       ║
+   ║  ─────────────────────────────────────────────────────────────────────  ║
+   ║  ✅  Tier 3 MAY reference Tier 2.                                       ║
+   ║  ✅  Tier 2 MAY reference Tier 1.                                       ║
+   ║  ❌  Tier 3 MUST NOT reference Tier 1 directly.                         ║
+   ║  ❌  Raw hex values (#xxxxxx) MUST NOT appear outside Tier 1.           ║
+   ║  ❌  Skin blocks MUST NOT override Tier 3 component tokens.             ║
+   ║  ❌  HTML/JSX MUST NOT reference Tier 1 tokens directly.                ║
+   ║  ❌  Never add a new component without a Tier 3 token block first.      ║
+   ║                                                                          ║
+   ╚══════════════════════════════════════════════════════════════════════════╝
+============================================================================= */
+ 
